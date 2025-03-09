@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} {{plant.name}} - Details {% endblock %}
+
+{% block content %}
+<section class="details">
+  <div class="container">
+    <div class="img">
+      <img src="{{plant.image.url}}" alt="">
+    </div>
+    <div class="info">
+      <h2>{{plant.name}}</h2>
+      <div class="category"> Category <span>{{plant.category}}</span></div>
+      <div class="brief">About <span>{{plant.about}}</span></div>
+      <div class="is">Is Edible <span> {{plant.is_edible}}</span></div>
+      <div class="used">Used For <span>{{plant.user_for}}</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="related plants-sec">
+  <div class="container">
+    <h2>Related Plants</h2>
+    <div class="boxes">
+      {% for plant_related in plants_related %}
+      <div class="box">
+        <img src="{{ plant.image.url }}" alt="">
+        <div class="info">
+          <h3>{{plant_related.name}}</h3>
+          <div class="brief">{{plant_related.about}} </div>
+          <div class="category">{{plant_related.category}}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
