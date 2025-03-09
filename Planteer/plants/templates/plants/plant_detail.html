@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+
+{% block title %}plant detail page {% endblock %}
+
+{% block content %}
+<h1>{{plants.name}}</h1>
+<div class="row">
+
+    <div class="col">
+        <div class="d-flex flex-column gap-2">
+         <img src="{{ plants.image.url }}" class="w-40 bg-black" style="max-height: 500px; width: 1000px;" />
+
+            <div class="d-inline">
+                <h5>{{plants.about}}</h5>
+                <h5>{{plants.used_for}}</h5>
+              <h5>{{plants.is_edible}}</h5>
+              <h5>{{plants.created_at}}</h5>
+            </div>
+
+
+           <div class="d-flex justify-content-end gap-2">
+                <a href="{% url 'plants:plant_update_view' plants.id %}" class="btn btn-primary">update</a>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Plant</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are You sure you want to delete {{plants.name}} ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="{% url 'plants:plant_delete_view' plants.id %}" class="btn btn-danger">delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

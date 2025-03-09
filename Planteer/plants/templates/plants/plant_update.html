@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block title %} create plant {% endblock %}
+
+{% block content %}
+<h1>Create Posts About Plants</h1>
+
+<div class="row">
+
+    <div class="col-6">
+
+        <form class="d-flex flex-column gap-2" action="{% url 'plants:plant_update_view' plants.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>Plant Name:</label>
+            <input type="text" placeholder="name" name="name" class="form-control" value="{{plants.name}}" required minlength="5" maxlength="512"/>
+            <label>About The Plant</label>
+            <textarea placeholder="about" name="about" class="form-control"  required>{{plants.about}}</textarea>
+          <label>This Plant Is Used For:</label>
+            <textarea placeholder="used for" name="used_for" class="form-control"  required> {{plants.used_for}}</textarea>
+
+          <label>Choose Plants</label>
+              <select name="category" class="form-control" required>
+                  <option value="indoor" {% if plants.category == "indoor" %}selected{% endif %}>Indoor Plants</option>
+                  <option value="outdoor" {% if plants.category == "outdoor" %}selected{% endif %}>Outdoor Plants</option>
+                  <option value="flowering" {% if plants.category == "flowering" %}selected{% endif %}>Flowering Plants</option>
+                  <option value="herbs_medical" {% if plants.category == "herbs_medical" %}selected{% endif %}>Herbs & Medicinal Plants</option>
+              </select>
+
+
+
+
+
+          <label>Is the plant edible?</label>
+              <select name="is_edible" id="is_edible" class="form-control" required>
+                  <option value="True" {% if plants.is_edible == True %}selected{% endif %}>Yes</option>
+                  <option value="False" {% if plants.is_edible == False %}selected{% endif %}>No</option>
+              </select>
+
+
+          <div class="row">
+                <div class="col-3">
+                    <img src="{{plants.image.url}}" class="w-100" />
+                </div>
+                <div class="col">
+                    <input type="file" name="image" class="form-control"/>
+                </div>
+            </div>
+
+
+            <input type="submit" value="Create Post" class="btn btn-primary" />
+
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
