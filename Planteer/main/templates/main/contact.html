@@ -1,11 +1,11 @@
 {%extends 'main/base.html'%}
-{%block title%}x {%endblock%}
+{%block title%} Contact Us {%endblock%}
 {% load static %}
 {%block content%}
 
 <section class="contact">
     <div class="contact-left">
-      <form action="{% url 'plants:add_contact_us_view' %}" method="post">
+      <form action="{% url 'main:add_contact_us_view' %}" method="post">
         {% csrf_token %}
         <h3>Contact us</h3>
         <p>Subheading for description or instructions</p>

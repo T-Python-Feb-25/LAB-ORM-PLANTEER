@@ -1,5 +1,5 @@
 {%extends 'main/base.html'%}
-{%block title%}x {%endblock%}
+{%block title%} Search {%endblock%}
 
 {%block content%} 
 
@@ -20,10 +20,11 @@
      <div class="card-x">
       
             <img src="{{plant.image.url}}" alt="plant img">
-            <a href="{% url 'plants:plant_detail_view' plant.id %}"> <h6>{{plant.name}}</h6></a>
+            <div class="mt-2">
+            <a  href="{% url 'plants:plant_detail_view' plant.id %}"> <h6>{{plant.name}}</h6></a>
             <p>{{plant.about}}</p>
             <h6>{{plant.category}}</h6>
-        </div>
+        </div>  </div>
         {% empty %}
         <p>No iteam found.</p>
         {%endfor%}

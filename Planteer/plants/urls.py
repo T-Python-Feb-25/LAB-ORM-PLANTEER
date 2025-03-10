@@ -9,7 +9,5 @@ urlpatterns=[path("new/",views.create_view,name="create_view"),
              path("<plant_id>/update/",views.update_view,name="update_view"),
              path("<plant_id>/delate/",views.delate_view,name="delate_view"),
             path("reviews/add/<plant_id>/",views.add_comment_view,name="add_comment_view"),
-            path("contact/us/",views.contact_us_view,name="contact_us_view"),
-            path("contact/us/add",views.add_contact_us_view,name="add_contact_us_view"),
-            path("contact/us/all",views.contact_us_all_view,name="contact_us_all_view")
+           
             ]

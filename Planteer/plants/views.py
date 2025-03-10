@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpRequest
-from .models import Plant,Comment,Contact
-from .forms import PlantForm ,CommentForm,ContactForm
+from .models import Plant,Comment
+from .forms import PlantForm ,CommentForm
 
 
 def create_view(request:HttpRequest):
@@ -63,16 +63,3 @@ def add_comment_view(request:HttpRequest,plant_id:int):
             comment.save()
             return redirect('plants:plant_detail_view', plant_id=plant_id)
 
-def contact_us_view(request:HttpRequest):
-    return render(request,'plants/contact.html')
-def add_contact_us_view(request:HttpRequest):
-    if request.method=="POST":
-        contact_form=ContactForm(request.POST,request.FILES)
-        if contact_form.is_valid():
-
-            contact_form.save()
-    return redirect('main:home_view')
-        
-def contact_us_all_view(request:HttpRequest):
-    contact_us=Contact.objects.all()
-    return render(request,"plants/all_contact_us.html",{"messages":contact_us})
