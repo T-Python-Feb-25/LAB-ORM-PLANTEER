@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="plant-card">
+    <img src="{{ plant.image.url }}" alt="{{ plant.name }}">
+    <h3>{{ plant.name }}</h3>
+    <p><strong>Category:</strong> {{ plant.category }}</p>
+    <p><strong>About:</strong> {{ plant.about }}</p>
+    <p><strong>Edible:</strong> {% if plant.is_edible %} Yes {% else %} No {% endif %}</p>
+    <p><strong>used for:</strong> {{ plant.used_for }}</p>
+
+    <div class="button-group">
+        <a href="{% url 'update_plant' plant.id %}" class="btn-update">Update</a>
+        <a href="{% url 'delete_plant' plant.id %}" class="btn-delete">Delete</a>
+    </div>
+</div>
+
+<section class="related-plants">
+    <h2>Related Plants</h2>
+    <div class="plant-grid">
+        {% for related_plant in related_plants %}
+        <div class="plant-card">
+            <img src="{{ related_plant.image.url }}" alt="{{ related_plant.name }}">
+            <h3>{{ related_plant.name }}</h3>
+            <a href="{% url 'plant_detail' related_plant.id %}">Brief about plant</a>
+        </div>
+        {% empty %}
+        <p>No related plants found.</p>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

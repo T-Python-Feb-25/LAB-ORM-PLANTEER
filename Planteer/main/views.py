@@ -1,24 +1,9 @@
-from django.shortcuts import render
-from .models import Plant
-# Create your views here.
+from django.shortcuts import render, redirect
+from Plants.models import Plant
+
 
 def home(request):
-    return render(request, 'main/home.html')
+    plants = Plant.objects.all()[:2]  
+    return render(request, 'home.html', {'plants': plants})
 
-def plant(request):
-    return render(request, 'main/plant.html')
 
-def detail(request):
-    return render(request, 'main/detail.html')
-
-def add(request):
-    return render(request, 'main/add.html')
-
-def update(request):
-    return render(request, 'main/update.html')
-
-def delete(request):
-    return render(request, 'main/delete.html')
-
-def search(request):
-    return render(request, 'main/search.html')

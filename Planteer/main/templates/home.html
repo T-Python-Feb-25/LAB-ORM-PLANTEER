@@ -1,1 +1,70 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h1>Planteer</h1>
+        <p>Plant Database For Plants Lovers</p>
+        <form action="{% url 'search_plants' %}" method="GET">
+            {% csrf_token %}
+            <input type="text" name="text" placeholder="Search For Plant...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
+<section class="plants-section">
+    <div class="section-header">
+        <h2>Plants</h2>
+        <p>Learn more about plants</p>
+        <a href="{% url 'all_plants' %}" class="more-link">More →</a>
+    </div>
+    <div class="plants-list">
+        {% for plant in plants %}
+        <div class="plant-item">
+            <img src="{{ plant.image.url }}" alt="{{ plant.name }}">
+            <div class="plant-info">
+                <h3>{{ plant.name }}</h3>
+                <p class="category">{{ plant.category }}</p>
+                <a href="{% url 'plant_detail' plant.id %}" class="btn-detail" style="text-decoration: none;">Brief about plant</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+</section>
+</div>
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <p class="footer-title">Site Name</p>
+        </div>
+        <div class="footer-column">
+            <p class="footer-title">Topic</p>
+            <ul>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-title">Topic</p>
+            <ul>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <p class="footer-title">Topic</p>
+            <ul>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+                <li><a href="#">Page</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Add a New Plant</h1>
+
+    <form method="POST" enctype="multipart/form-data" class="plant-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Plant</button>
+    </form>
+</div>
+{% endblock %}

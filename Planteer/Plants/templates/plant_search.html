@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Search Results</h1>
+
+    <form method="GET" action="{% url 'search_plants' %}">
+        <input type="text" name="search" placeholder="Search for a plant..." value="{{ request.GET.search }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <div class="plants-list">
+        {% if plants %}
+            {% for plant in plants %}
+            <div class="plant-item">
+                <img src="{{ plant.image.url }}" alt="{{ plant.name }}">
+                <div class="plant-info">
+                    <h3>{{ plant.name }}</h3>
+                    <p>Category: <strong>{{ plant.category }}</strong></p>
+                    <a href="{% url 'plant_detail' plant.id %}" class="btn-detail">View Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No plants found matching your search.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
