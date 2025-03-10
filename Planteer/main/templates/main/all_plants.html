@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} All Plants {% endblock %}
+
+
+{% block content %} 
+<section class="plants-sec all">
+  <div class="container">
+    <div class="head">
+      <div class="left">
+        <h2>All Plants</h2>
+      </div>
+      <div class="right">
+        <form action="{% url 'main:all_plants_view' %}" method="get">
+          <select name="filter">
+            <option value="">Filter By</option>
+            <optgroup label="Category">
+            {% for value, item in CategoryChoices %}
+              <option value="{{value}}">{{item}}</option>
+            {% endfor %}
+            </optgroup>
+            <optgroup label="Others">
+              <option value="is_edible">is_edible</option>
+            </optgroup>
+          </select>
+          <input type="submit" value="Filter">
+        </form>
+      </div>
+    </div>
+    <div class="boxes">
+      {% for plant in plants %}
+      <div class="box">
+        <img src="{{ plant.image.url }}" alt="">
+        <div class="info">
+          <a href="{% url 'main:plant_detail_view' plant.id %}"><h3>{{plant.name}}</h3></a>
+          <div class="brief">{{plant.about}} </div>
+          <div class="category">{{plant.category}}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

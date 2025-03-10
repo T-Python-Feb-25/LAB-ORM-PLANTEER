@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Google Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_forward" />
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- CSS Style - Main App-->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <title>{% block title %} Default {% endblock %}</title>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="{% url 'main:home_page_view' %}" class="logo">Planteer</a>
+      <nav>
+        <a href="{% url 'main:all_plants_view' %}">All Plants</a>
+        <a href="{% url 'contact:contact_page_view' %}">Contact Us</a>
+        <a href="{% url 'plants:plants_create_view' %}" class="special">Add Plant</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    {% block landing %}
+    {% endblock %}
+    {% block content %}
+    
+    {% endblock %}
+
+  </main>
+  <footer>
+    <div class="container">
+      <div class="left">
+        <h3>Planteer</h3>
+        <div class="social">
+          <ul>
+            <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-linkedin"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-youtube"></i></a></li>
+            <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="right">
+        <div class="col">
+          <span class="title">Topic</span>
+          <span class="page">Page</span>
+          <span class="page">Page</span>
+          <span class="page">Page</span>
+
+        </div>
+        <div class="col">
+          <span class="title">Topic</span>
+          <span class="page">Page</span>
+          <span class="page">Page</span>
+          <span class="page">Page</span>
+        </div>
+        <div class="col">
+          <span class="title">Topic</span>
+          <span class="page">Page</span>
+          <span class="page">Page</span>
+          <span class="page">Page</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+  <section class="plants-sec">
+    <div class="container">
+      <div class="head">
+        <div class="left">
+          <h2>Search</h2>
+        </div>
+      </div>
+      <div class="serach-bar">
+        <form action="{% url 'main:plant_search_view' %}" method="get">
+          <input type="search" name="search" placeholder="Search For Plant...">
+          <input type="submit" value="Search" class="special">
+        </form>
+      </div>
+      <div class="boxes">
+        {% for plant in plants %}
+        <div class="box">
+          <img src="{{ plant.image.url }}" alt="">
+          <div class="info">
+            <a href="{% url 'main:plant_detail_view' plant.id %}"><h3>{{plant.name}}</h3></a>
+            <div class="brief">{{plant.about}} </div>
+            <div class="category">{{plant.category}}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </section>
+{% endblock %}

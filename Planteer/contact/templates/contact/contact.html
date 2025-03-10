@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} Contact {% endblock %}
+
+{% block content %}
+<div class="contact-sec">
+  <div class="container">
+    <div class="contact-form">
+      <h2>Contact Us</h2>
+      <p>Lorem ipsum dolor sit amet</p>
+      <form action="{% url 'contact:contact_page_view' %}" method="post">
+        {% csrf_token %}
+        <div class="top">
+          <div>
+            <label>Fist name</label>
+            <input name="first_name" type="text" placeholder="Nawaf" required>
+          </div>
+          <div>
+            <label>Last name</label>
+            <input name="last_name" type="text" placeholder="Alahmadi" required>
+          </div>
+        </div>
+        <div class="email">
+          <label>Email address</label>
+          <input name="email" type="email" placeholder="nawaf@gmail.com" required>
+        </div>
+        <div class="message">
+          <label>Your message</label>
+          <textarea name="message" placeholder="Enter Your Question or Message" required></textarea>
+        </div>
+        <input type="submit" value="Submit" class="special">
+      </form>
+    </div>
+    <div class="img">
+      <img src="{% static 'Images/contact.jpg' %}" alt="">
+    </div>
+  </div>
+</div>
+{% endblock %}

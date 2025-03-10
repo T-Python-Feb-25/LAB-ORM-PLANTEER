@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} {{plant.name}} - Details {% endblock %}
+
+{% block content %}
+<section class="details">
+  <div class="container">
+    <div class="img">
+      <img src="{{plant.image.url}}" alt="">
+    </div>
+    <div class="info">
+      <div>
+        <h2>{{plant.name}}</h2>
+        <div class="category"> Category <span>{{plant.category}}</span></div>
+        <div class="brief">About <span>{{plant.about}}</span></div>
+        <div class="is">Is Edible <span> {% if plant.is_edible == 1 %} Yes {% else %} No {% endif %}</span></div>
+        <div class="used">Used For <span>{{plant.user_for}}</span></div>
+      </div>
+      <div class="delete-modify">
+        <a href="{% url 'plants:plants_update_view' plant.id %}">Modify</a>
+        <a href="{% url 'plants:plants_delete_view' plant.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="commnts-sec">
+  <div class="container">
+    <h2>Commnts</h2>
+    {% if commnts %}
+    <div class="commnts">
+      {% for commnt in commnts %}
+      <div class="commnt">
+        <h3>{{commnt.full_name}}</h3>
+        <p>{{commnt.content}}</p>
+        <span>{{commnt.created_at}}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p>There Is no commnts</p>
+    {% endif %}
+
+
+    <div class="commnt-form">
+      <h2>Add Commnt</h2>
+      <form action="{% url 'plants:commnt_create_view' plant.id %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label>Full Name</label>
+          <input type="text" name="full_name">
+        </div>
+        <div>
+          <label>Commnt</label>
+          <textarea name="content"></textarea>
+        </div>
+        <input type="submit" value="Add Commnt" class="special">
+      </form>
+    </div>
+  </div>
+</section>
+<section class="related plants-sec">
+  <div class="container">
+    {% if plants_related %}
+    <h2>Related Plants</h2>
+    {% endif %}
+
+    <div class="boxes">
+      {% for plant_related in plants_related %}
+      <div class="box">
+        <img src="{{ plant_related.image.url }}" alt="">
+        <div class="info">
+          <a href="{% url 'main:plant_detail_view' plant.id %}"><h3>{{plant_related.name}}</h3></a>
+          <div class="brief">{{plant_related.about}} </div>
+          <div class="category">{{plant_related.category}}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Create Plant {% endblock %}
+
+{% block content %}
+<section class="form">
+  <div class="container">
+    <form action="{% url 'plants:plants_create_view' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div>
+        <label>Plant Name</label>
+        <input type="text" name="name" placeholder="Plant name..." required>
+      </div>
+      <div>
+        <label>About Plante</label>
+        <textarea name="about" placeholder="About the Plante..." required></textarea>  
+      </div>
+      <div>
+        <label>Uses</label>
+        <textarea name="user_for" placeholder="Uses of the plante..." required></textarea>  
+      </div>
+      <div>
+        <label>Upload Image</label>
+        <input type="file" accept="images/*" name="image" required>
+      </div>
+      <div>
+        <label>Category</label>
+        <select name="category" required>
+          <option value="">Choose</option>
+          {% for value, label in CategoryChoices %}
+          <option value="{{value}}">{{label}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label>Is Edible</label>
+        <select name="is_edible" required>
+          <option value="">Choose</option>
+          <option value="True">Yes</option>
+          <option value="False">No</option>
+        </select>
+      </div>
+      <input type="submit" value="Create">
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block landing %}
+
+  <div class="landing">
+    <div class="container">
+      <div class="box">
+        <div class="intro">
+          <h1>Planteer</h1>
+          <p>Plant Database For Plants Lovers</p>
+        </div>
+        <form action="{% url 'main:plant_search_view' %}" method="get">
+          <input type="search" name="search" placeholder="Search For Plant...">
+          <input type="submit" value="Search" class="special">
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+{% block content %}
+  <section class="plants-sec">
+    <div class="container">
+      <div class="head">
+        <div class="left">
+          <h2>Plants</h2>
+          <p>Learn More About Plants</p>
+        </div>
+        <div class="right">
+          <a href="{% url 'main:all_plants_view' %}">More <span class="material-symbols-outlined">
+            arrow_forward
+            </span> </a>
+        </div>
+      </div>
+      <div class="boxes">
+        {% for plant in plants %}
+        <div class="box">
+          <img src="{{ plant.image.url }}" alt="">
+          <div class="info">
+            <a href="{% url 'main:plant_detail_view' plant.id %}"><h3>{{plant.name}}</h3></a>
+            <div class="brief">{{plant.about}} </div>
+            <div class="category">{{plant.category}}</div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </section>
+{% endblock %}
