@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    
+    <div class="card mb-4 shadow">
+        <div class="card-header text-center bg-success text-white">
+            <h2>{{ plant.name }}</h2>
+        </div>
+        <div class="card-body text-center">
+            <img src="{{ plant.image.url }}" class="img-fluid d-block mx-auto mb-3 rounded" alt="{{ plant.name }}" style="max-width: 400px;">
+            <p><strong>Category:</strong> {{ plant.category }}</p>
+            <p><strong>Is Edible:</strong> {% if plant.is_edible %}Yes{% else %}No{% endif %}</p>
+            <p><strong>Uses:</strong> {{ plant.used_for }}</p>
+            <p><strong>Description:</strong> {{ plant.about }}</p>
+        </div>
+    </div>
+
+    <h3 class="mt-4">Related Plants</h3>
+    <div class="row">
+        {% for related in related_plants %}
+        <div class="col-md-4">
+            <div class="card mb-3 shadow-sm">
+                <img src="{{ related.image.url }}" class="card-img-top" alt="{{ related.name }}" style="height: 200px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ related.name }}</h5>
+                    <a href="{% url 'plant_detail' related.id %}" class="btn btn-success">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-muted">No related plants found.</p>
+        {% endfor %}
+    </div>
+
+    <h3 class="mt-5">Comments</h3>
+    <ul class="list-group mb-4">
+        {% for comment in comments %}
+        <li class="list-group-item">
+            <strong>{{ comment.full_name }}</strong>: {{ comment.content }}
+            <small class="text-muted d-block">{{ comment.created_at }}</small>
+        </li>
+        {% empty %}
+        <li class="list-group-item">No comments yet.</li>
+        {% endfor %}
+    </ul>
+
+    <h3 class="mt-4">Add a Comment</h3>
+    <form method="POST" class="comment-box p-3">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="full_name" class="form-label">Your Name</label>
+            <input type="text" name="full_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Your Comment</label>
+            <textarea name="content" class="form-control" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Submit</button>
+    </form>
+</div>
+{% endblock %}
