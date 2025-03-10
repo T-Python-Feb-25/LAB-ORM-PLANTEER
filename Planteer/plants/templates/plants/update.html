@@ -1,0 +1,40 @@
+{%extends 'main/base.html'%}
+{%block title%}x {%endblock%}
+
+{%block content%} 
+
+<section class="add-form">
+    <div class="add">
+    <h1>New Plant</h1>
+    
+  <form method="POST" action="{%url 'plants:update_view' plant.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text"  class="custom-input" id="name" name="name" value="{{plant.name}}" required />
+
+    <label for="about">About:</label>
+    <textarea id="about"  class="custom-input" name="about" rows="4" cols="50"  required>{{plant.about}}</textarea>
+
+    <label for="used_for">Used For:</label>
+    <textarea id="used_for" class="custom-input" name="used_for" rows="4" cols="50" required>{{plant.used_for}}</textarea>
+    <img src="{{plant.image.url}}" alt="" style="max-height: 30vh;">
+    <label for="image">Image:</label>
+    <input type="file"  class="custom-input" id="image" name="image" accept="image/*" required/>
+
+    <label for="category">Category:</label>
+    <select class="form-select" id="category" name="category">
+    {%for val, label in catagory %}
+    <option value="{{ val }}" {% if plant.category == val %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+      
+   
+    </select>
+    <div>
+    <label class="form-check-label" for="is_edible">is edible:</label>
+    <input class="form-check-input" type="checkbox" id="is_edible" name="is_edible" value="True" {%if plant.is_edible%} checked {% endif %} />
+</div>
+    <button type="submit">Update Plant</button>
+  </form>
+    </div>
+</section>
+{%endblock%}

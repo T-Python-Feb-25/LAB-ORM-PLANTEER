@@ -1,0 +1,43 @@
+{%extends 'main/base.html'%}
+{%block title%}x {%endblock%}
+
+{%block content%} 
+
+<section class="home">
+    <div class="home-top">
+        <form action="{%url 'plants:search_view'%}" method="get">
+           <div class="space_search">
+            <h1>search result ({{plants.count}})</h1>
+            <div class="home-top-flex">
+            <input class="custom-input" type="text" placeholder="Search for a planet" name="search" minlength="3" value="{{requset.GET.search}}">
+            <button>Search</button>
+        </div>
+    </div>
+        </form>
+    </div>
+    <div class="home-grid">
+        {%for plant in plants%}
+     <div class="card-x">
+      
+            <img src="{{plant.image.url}}" alt="plant img">
+            <a href="{% url 'plants:plant_detail_view' plant.id %}"> <h6>{{plant.name}}</h6></a>
+            <p>{{plant.about}}</p>
+            <h6>{{plant.category}}</h6>
+        </div>
+        {% empty %}
+        <p>No iteam found.</p>
+        {%endfor%}
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+{%endblock%}

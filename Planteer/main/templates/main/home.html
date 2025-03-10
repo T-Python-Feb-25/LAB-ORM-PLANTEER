@@ -1,0 +1,58 @@
+{%extends 'main/base.html'%}
+{%block title%}x {%endblock%}
+
+{%block content%} 
+<main>
+    <section class="search">
+        <div>
+            <div class="ms-2">
+            <h2>Planteer</h2>
+            <h3>Plant Database For Plants Lovers</h3>
+        </div>
+            <div>
+                <form action="{%url 'plants:search_view'%}" method="get">
+                    <div class="search_btn">
+                    <input class="custom-input" type="text" placeholder="Search for a planet" name="search" minlength="3" value="{{requset.GET.search}}">
+                    <button>Search</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+    <section class="home">
+        <div class="home-top">
+            <h3>plants</h3>
+            <a href="{%url 'plants:all_plants_view'%}"><h5>more</h5></a>
+        </div>
+        <p>Learn more about plants</p>
+        <div class="home-grid">
+            {%for plant in plants%}
+            <div class="card-x">
+                <div class="card-img mb-1">
+                <img src="{{plant.image.url}}" alt="plant img">
+            </div>
+                <div class="content mt-2">
+
+                    <a href="{% url 'plants:plant_detail_view' plant.id %}"> <h6>{{plant.name}}</h6></a>
+                    <p>{{plant.about}}</p>
+                <h6>{{plant.category}}</h6>
+                </div>
+            </div>
+            {%endfor%}
+
+        </div>
+    </section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+{%endblock%}

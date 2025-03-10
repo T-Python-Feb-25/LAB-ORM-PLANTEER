@@ -1,0 +1,43 @@
+{%extends 'main/base.html'%}
+{%block title%}x {%endblock%}
+{% load static %}
+{%block content%}
+
+<section class="contact">
+    <div class="contact-left">
+      <form action="{% url 'plants:add_contact_us_view' %}" method="post">
+        {% csrf_token %}
+        <h3>Contact us</h3>
+        <p>Subheading for description or instructions</p>
+        <div class="all_form">
+        <div class="first_last_names">
+          <div class="first_name">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" name="first_name" id="first_name" required>
+          </div>
+          <div class="last_name">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" name="last_name" id="last_name" required>
+          </div>
+        </div>
+        <div class="other">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control"  name="email" id="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" class="form-control" name="message" rows="4" cols="50" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+    </div>
+      </form>
+    </div>
+    <div class="contact-right">
+      <img src="{% static 'images/exotic-plant-pot-stairs-arrangement.jpg' %}" alt="Contact Image">
+    </div>
+  </section>
+  
+
+
+
+
+
+{%endblock%}
