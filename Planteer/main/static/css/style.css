@@ -1,0 +1,362 @@
+.nav-link button{
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0 60px;
+}
+.search{
+    
+        background-image: url(/static/images/single-leaf-white-background-with-copy-space.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%; 
+        min-height: 60vh;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+
+}
+.search_btn{
+    text-align: center;
+}
+.search input[type="text"] {
+    width: 70%;
+  }
+
+.search button{
+
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+}
+.search h2{
+    text-align: center;
+    font-size:4rem;
+}
+.search h3{
+    font-size: 2rem;
+    text-align: left;
+}
+.add{
+    margin: 0 auto;
+    width: 400px;
+}
+.add form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+
+    
+    
+}
+.home-top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.home-grid{
+    display: grid;
+    grid-template-columns: repeat(3,minmax(350px,1fr));
+    grid-template-rows: 400px;
+    margin-bottom: 40px;
+    border-style: none;
+    gap: 15px;
+    margin-top: 20px;
+  
+    
+}
+.card-x{
+    width: 100%;
+    height: 100%;
+    height: 400px;
+}
+.card-x img{
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+    max-height: 300px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.content h6,.content p{
+    margin: 0;
+   
+}
+.detail-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.detail-left{
+    width: 100%;
+    height: 100%;
+    flex-basis: 45%;
+
+
+}
+.d-flex a{
+    text-decoration: none;
+    color: rgb(214, 214, 214);
+}
+.detail-right{
+    flex-basis: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.detail-left img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 80vh;
+}
+.detail-right-down{
+    display: flex;
+    justify-content: space-between;
+}
+.detail-right-down button{
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 6px;
+    padding: 5px 20px;
+    align-items: center;
+
+}
+.home-option,
+.home-option form {
+    width: 100%;
+}
+
+.space {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+}
+.flex-comment{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+}
+.flex-comment button{
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+    
+}
+.add button{
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+    
+}
+.btn-filter{
+    background-color: black;
+    color: white;
+    border-style: none;
+    padding: 4px 6px;
+    align-items: center;
+
+
+}
+.contact{
+    display: flex;
+    flex-direction: row;
+    max-height: 70vh;
+    justify-content: space-evenly;
+    gap: 30px;
+    
+}
+.contact-left form{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 45%;
+}
+.contact-right{
+    flex-basis: 45%;
+}
+.contact-right img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.first_last_names{
+    display: flex;
+    gap: 30px;
+}
+.first_name,.last_name{
+    display: flex;
+    flex-direction: column;
+}
+.other{
+    display: flex;
+    flex-direction: column;
+}
+.all_form{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.all_form button{
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+}
+.card-message a{
+    text-decoration: none;
+    
+
+}
+.grid-message {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px); 
+    grid-auto-rows: 300px; 
+    gap: 10px;
+}
+
+
+  
+  .card-message {
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+  }
+  .card-message-content{
+    width: 100%;
+    height: 100%;
+  }
+  .card-message-content p {
+    word-break: break-word;
+    color: rgb(184, 184, 184);
+  }
+  .color {
+    background-color: black;
+    color: white;
+    border: none; 
+  }
+  .home-top-flex {
+    display: flex;
+   gap: 4px;
+  }
+  
+  .home-top form {
+    width: 100%;
+  }
+  .space_search{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+  .custom-input {
+    padding: 0.2rem 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .custom-select{
+    border: 1px solid #ced4da;
+
+  }
+
+  .custom-input:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+  }
+ 
+  .home-top-flex button {
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 4px;
+    padding: 5px 20px;
+    align-items: center;
+    
+  }
+  .home-top-flex input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    
+  }
+
+@media screen and (max-width:800px){
+    .detail-flex{
+        display: flex;
+        flex-direction: column;
+    }
+    .home-grid{
+        display: block;
+    }
+    .space{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .contact{
+        flex-direction: column;
+        flex-basis: 50%;
+    }
+    .contact-right{
+        display: none;
+        
+    }
+    .first_last_names{
+        flex-direction: column;
+    }
+    .flex-comment{
+        width: 100%;
+    }
+    .detail-right-down{
+        flex-direction: column;
+    }
+    .search h2{
+        text-align: center;
+        font-size:3rem;
+    }
+    .search h3{
+        font-size: 1,2rem;
+        text-align: left;
+    }
+
+}

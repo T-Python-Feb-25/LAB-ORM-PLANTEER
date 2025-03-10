@@ -1,0 +1,114 @@
+.nav-link button{
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0 60px;
+}
+.search{
+        background-image: url(../images/single-leaf-white-background-with-copy-space.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%; /* Stretches the image to fill the container */
+        min-height: 60vh;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    
+}
+.search button{
+
+    background-color: black;
+    color: white;
+    border-style: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+    align-items: center;
+}
+.add{
+    background-color: rgb(228, 228, 228);
+    margin: 0 auto;
+    width: 400px;
+}
+.add form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+
+    
+    
+}
+.home-top{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    grid-template-rows: 400px;
+    margin-bottom: 40px;
+    border-style: none;
+    gap: 15px;
+    
+}
+.card-x{
+    width: 100%;
+    height: 100%;
+    height: 400px;
+   
+}
+.card-x img{
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.content h6,.content p{
+    margin: 0;
+   
+}
+.detail-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.detail-left{
+    width: 100%;
+    height: 100%;
+    flex-basis: 45%;
+
+
+}
+.detail-right{
+    flex-basis: 45%;
+}
+.detail-left img{
+    width: 5%;
+    height: 5%;
+    object-fit: cover;
+}

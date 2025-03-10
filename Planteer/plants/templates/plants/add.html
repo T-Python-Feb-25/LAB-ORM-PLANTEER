@@ -1,0 +1,40 @@
+{%extends 'main/base.html'%}
+{%block title%}Add Plant {%endblock%}
+
+{%block content%} 
+
+<section class="add-form">
+    <div class="add">
+    <h1>New Plant</h1>
+    
+  <form method="POST" action="{%url 'plants:create_view'%}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input class="custom-input" type="text" id="name" name="name" required />
+
+    <label for="about">About:</label>
+    <textarea class="custom-input" id="about" name="about" rows="4" required></textarea>
+
+    <label for="used_for">Used For:</label>
+    <textarea class="custom-input" id="used_for" name="used_for" rows="4" required ></textarea>
+
+    <label for="image">Image:</label>
+    <input class="form-control" type="file" id="image" name="image" accept="image/*" required />
+
+    <label for="category">Category:</label>
+    <select class="form-select"  id="category" name="category">
+    {%for val, label in catagory %}
+    <option value="{{val}}">{{val}}</option>
+    {% endfor %}
+      
+   
+    </select>
+    <div>
+    <label class="form-check-label" for="is_edible">is edible</label>
+    <input class="form-check-input" type="checkbox" id="is_edible" name="is_edible" value="True" />
+</div>
+    <button type="submit">Save Plant</button>
+  </form>
+    </div>
+</section>
+{%endblock%}
