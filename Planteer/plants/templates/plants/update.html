@@ -8,15 +8,15 @@
     <form action="{% url 'plants:plants_update_view' old_plant.id %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       <div>
-        <label>Plant Name:</label>
+        <label>Plant Name</label>
         <input type="text" name="name" placeholder="Plant name..." required value="{{old_plant.name}}">
       </div>
       <div>
-        <label>About Plante:</label>
+        <label>About Plante</label>
         <textarea name="about" placeholder="About the Plante..." required>{{old_plant.about}}</textarea>  
       </div>
       <div>
-        <label>Uses:</label>
+        <label>Uses</label>
         <textarea name="user_for" placeholder="Uses of the plante..." required>{{old_plant.user_for}}</textarea>  
       </div>
       <div>

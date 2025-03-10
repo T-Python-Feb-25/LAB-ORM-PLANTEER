@@ -48,7 +48,7 @@
       <form action="{% url 'plants:commnt_create_view' plant.id %}" method="post">
         {% csrf_token %}
         <div>
-          <label>Full Name:</label>
+          <label>Full Name</label>
           <input type="text" name="full_name">
         </div>
         <div>
@@ -71,7 +71,7 @@
       <div class="box">
         <img src="{{ plant_related.image.url }}" alt="">
         <div class="info">
-          <h3>{{plant_related.name}}</h3>
+          <a href="{% url 'main:plant_detail_view' plant.id %}"><h3>{{plant_related.name}}</h3></a>
           <div class="brief">{{plant_related.about}} </div>
           <div class="category">{{plant_related.category}}</div>
         </div>
