@@ -1,0 +1,136 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+
+    
+}
+
+.wrapper{
+    padding: 1rem 1rem;
+
+}
+
+ body{
+    display: flex;
+    background-color: white;
+    /* background-image: url('/static/image/skyscraper.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;  */
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.head_nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.head_nav,strong{
+    font-size: large;
+    color: black;
+    padding: 2rem 2rem;
+}
+
+
+
+.right{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+
+}
+
+a{
+    color: black;
+    text-decoration: none;
+
+}
+
+
+.btn{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    padding: 14px 12px;
+    border-radius: 10px;
+}
+
+.the_end{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20rem;
+    align-items: center;
+}
+
+.site{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+
+.topic{
+    color: #3b3a3a;
+}
+
+.link{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+   
+
+}
+
+.image{
+    size: 1rem;
+    color: #5c5a5a;
+}
+
+.basic{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    padding: 7rem 10rem;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    background-image: url('static/image/background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+}
+.search{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items:center;
+    gap: 5rem;
+   
+}
+
+
+.search-input{
+  padding: 1rem 7rem ;
+  width: 25rem;
+  border-radius: 0.5rem;
+}
+
+
