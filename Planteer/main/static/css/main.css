@@ -61,6 +61,7 @@ header .container {
 header .logo {
   font-weight: 600;
   padding: 15px 0px;
+  color: black;
 }
 header nav {
   display: flex;
@@ -185,8 +186,21 @@ section {
   color: var(--p-color);
 
 }
-.plants-sec .head .right{
-
+.plants-sec .head .right form select {
+  width: 150px;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  resize: none;
+  outline: none;
+}
+.plants-sec .head .right form input {
+  background-color: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 500;
+  cursor: pointer;
 }
 .plants-sec .head .right a{
   display: flex;
@@ -224,6 +238,13 @@ section {
 .plants-sec .boxes .box .info .category {
   font-weight: 500;
 }
+@media (max-width:767px) {
+  .plants-sec .head {
+    gap: 25px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 /* Details */
 .details .container{
   display: flex;
@@ -239,6 +260,21 @@ section {
   width: 40%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+.details .delete-modify a {
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-block;
+}
+.details .delete-modify a:first-child{
+  background-color: darkorange;
+}
+.details .delete-modify a:last-child{
+  background-color: darkred;
 }
 .details .info h2 {
   margin-bottom: 20px;
@@ -300,6 +336,65 @@ section {
   .details .info div {
     width: 100%;
   }
+}
+/* Search */
+.serach-bar form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.serach-bar input[type="search"] {
+  border: 1px var(--border-color) solid;
+  outline: none;
+  padding: 15px 20px;
+  width: 90%;
+  border-radius: 6px;
+}
+/* Commnts */
+.commnts-sec {
+  
+}
+.commnts-sec .container h2 {
+  margin-bottom: 20px;
+
+}
+.commnts-sec .container p {
+  margin-bottom: 20px;
+  color: var(--p-color);
+}
+.commnts-sec .container .commnts {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.commnts-sec .container .commnts .commnt {
+  width: 45%;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.commnts-sec .container .commnts .commnt p {
+  color: var(--p-color);
+  margin: 10px 0px 30px;
+}
+.commnts-sec .container .commnt-form form div {
+  margin-bottom: 10px;
+  
+}
+.commnts-sec .container .commnt-form form div label {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.commnts-sec .container .commnt-form input ,
+.commnts-sec .container .commnt-form textarea {
+  border: 1px var(--border-color) solid;
+  outline: none;
+  padding: 15px 20px;
+  width: 90%;
+  border-radius: 6px;
+  resize: none;
 }
 /* Footer */
 footer {
@@ -363,8 +458,6 @@ footer .right .col .title {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  min-width: 700px;
-
 }
 .form form div label {
   display: block;
@@ -383,4 +476,105 @@ footer .right .col .title {
 }
 .form form input[type="submit"] {
   cursor: pointer;
+}
+@media (max-width: 767px) {
+  .form form {
+    max-width: 700px;
+  }
+}
+
+/* contact-sec - contact app*/
+.contact-sec .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.contact-sec .container .contact-form {
+  width: 60%;
+}
+.contact-sec .container .contact-form h2 {
+margin-bottom: 10px;  
+}
+.contact-sec .container .contact-form p {
+margin-bottom: 10px;  
+color: var(--p-color);
+}
+.contact-sec .container .contact-form form label{
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.contact-sec .container .contact-form form div {
+  margin-bottom: 10px;
+}
+.contact-sec .container .contact-form form input,
+.contact-sec .container .contact-form form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px var(--border-color) solid;
+  outline: none;
+  resize: none;
+}
+.contact-sec .container .contact-form form textarea {
+  height: 200px;
+}
+.contact-sec .container .contact-form form .top {
+  display: flex;
+  gap: 15px;
+}
+.contact-sec .container .contact-form form .top div {
+  width: 45%;
+  flex-grow: 1;
+}
+.contact-sec .container .contact-form form .top div input {
+  width: 100%;
+}
+.contact-sec .container .contact-form form .email label{
+}
+.contact-sec .container .contact-form form .message label {
+}
+.contact-sec .container .img img {
+  height: 500px;
+}
+@media (max-width: 767px){
+  .contact-sec .container .img img {
+    display: none;
+  }
+  .contact-sec .container .contact-form {
+    width: 100%;
+  }
+}
+/* messages-sec */
+.messages-sec .container h2 {
+  margin-bottom: 30px;
+}
+.messages-sec .container .messages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.messages-sec .container .messages .message {
+  width: 40%;
+}
+.messages-sec .container .messages .message h4,
+.messages-sec .container .messages .message i, 
+.messages-sec .container .messages .message .email , 
+.messages-sec .container .messages .message p {
+  margin-bottom: 5px;
+  display: block;
+}
+.messages-sec .container .messages .message .email {
+  color: blue;
+}
+.messages-sec .container .messages .message p {
+  margin-top: 10px;
+  color: var(--p-color);
+}
+@media (max-width:767px) {
+  .messages-sec .container .messages {
+    flex-direction: column;
+  }
+  .messages-sec .container .messages .message {
+    width: 100%;
+  }
 }

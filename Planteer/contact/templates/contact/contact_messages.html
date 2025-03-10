@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+
+{% load static %}
+{% block title %} Messages {% endblock %}
+
+{% block content %}
+<div class="messages-sec">
+  <div class="container">
+    <h2>Messages From Users</h2>
+    <div class="messages">
+      {% for message in messages %}
+      <div class="message">
+        <i class="fa-solid fa-circle-user"></i>
+        <h4 class="name">{{message.first_name}} {{message.last_name}}</h4>
+        <a class="email" href="mailto:">{{message.email}}</a>
+        <p class="message-p">{{message.message}}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Update Plant {% endblock %}
+
+{% block content %}
+<section class="form">
+  <div class="container">
+    <form action="{% url 'plants:plants_update_view' old_plant.id %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div>
+        <label>Plant Name:</label>
+        <input type="text" name="name" placeholder="Plant name..." required value="{{old_plant.name}}">
+      </div>
+      <div>
+        <label>About Plante:</label>
+        <textarea name="about" placeholder="About the Plante..." required>{{old_plant.about}}</textarea>  
+      </div>
+      <div>
+        <label>Uses:</label>
+        <textarea name="user_for" placeholder="Uses of the plante..." required>{{old_plant.user_for}}</textarea>  
+      </div>
+      <div>
+        <label>Upload Image</label>
+        <input type="file" accept="images/*" name="image" >
+      </div>
+      <div>
+        <label>Category</label>
+        <select name="category" required>
+          {% for value, label in CategoryChoices %}
+          <option value="{{value}}" {% if old_plant.category == value %} selected {% endif %}>{{label}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label>Is Edible</label>
+        <select name="is_edible" required>
+          <option value="True" {% if old_plant.is_edible == 1 %} selected {% endif %}>Yes</option>
+          <option value="False" {% if old_plant.is_edible == 0 %} selected {% endif %}>No</option>
+        </select>
+      </div>
+      <input type="submit" value="Update">
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+

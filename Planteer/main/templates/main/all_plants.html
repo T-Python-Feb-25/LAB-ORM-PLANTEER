@@ -2,7 +2,7 @@
 
 
 {% load static %}
-{% block title %} Home {% endblock %}
+{% block title %} All Plants {% endblock %}
 
 
 {% block content %} 
@@ -16,8 +16,14 @@
         <form action="{% url 'main:all_plants_view' %}" method="get">
           <select name="filter">
             <option value="">Filter By</option>
-            <!-- <option value="">Category</option> -->
-            <option value="is_edible">is_edible</option>
+            <optgroup label="Category">
+            {% for value, item in CategoryChoices %}
+              <option value="{{value}}">{{item}}</option>
+            {% endfor %}
+            </optgroup>
+            <optgroup label="Others">
+              <option value="is_edible">is_edible</option>
+            </optgroup>
           </select>
           <input type="submit" value="Filter">
         </form>
