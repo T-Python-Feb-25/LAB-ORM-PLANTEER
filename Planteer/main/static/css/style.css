@@ -122,6 +122,16 @@ body{
 
 
 }
+.plant-a {
+    text-decoration: none;
+    color: black;
+
+}
+.plant-a:hover {
+    
+    color: rgb(0, 110, 255);
+
+}
 .d-flex a{
     text-decoration: none;
     color: rgb(214, 214, 214);
