@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Add Plants {% endblock %}
+
+{% block content %} 
+<div class="container d-flex justify-content-center ">
+
+    <div class="col-6">
+
+        <form class="d-flex flex-column gap-2" action="{% url 'plant:add_plants' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" placeholder="Name" name="name" class="form-control" required minlength="3"/>
+            <textarea placeholder="About" name="about" class="form-control" required></textarea>
+            <textarea placeholder="Used_for" name="used_for" class="form-control" required></textarea>
+            <div class="d-flex gap-2 align-items-center">
+                <select class="form-select" name="category" required>
+                    <option value="" selected>Select a category</option>
+                    {% for val, label in CategoryChoices %}
+                        <option value="{{ val }}">{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+                <select class="form-select" name="is_edible" required>
+                    <option value="" selected>Select a is_edible</option>
+                        <option value="True">Yes</option>
+                        <option value="False">No</option>
+                </select>
+            </div>
+
+            <input type="file" name="image" class="form-control" required accept="image/*"/>
+
+
+            <input type="submit" value="Add plants" class="btn btn-primary bg-black" />
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

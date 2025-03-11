@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}All Plants{% endblock %}
+
+{% block content %}
+<h1 class="h1">All Plants</h1>
+
+<div class="plant-grid">
+    {% for plants in plant %} <!-- Corrected loop variable to 'plants' for consistency -->
+        <div class="plant-card">
+            <a href="{% url 'plant:plant_detail' plants.id %}">
+                <h3>{{ plants.name }}</h3>
+            </a>
+            <img src="{{ plants.image.url }}" alt="{{ plants.name }}" class="plant-image" loading="lazy" />
+            <p>{{ plants.about }}</p> <!-- Fixed closing tag placement -->
+            <p>{{ plants.category }}</p>
+            <p>{{ plants.is_edible }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
