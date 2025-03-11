@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Plant Detail{% endblock %}
+
+{% block content %}
+<div class="plant-detail-container">
+    <div class="plant-main">
+        <div class="plant-image">
+                <img src="{{ plant.image.url }}" alt="{{ plant.name }}" />
+        </div>
+        <div class="plant-info">
+            <h1>{{ plant.name }}</h1>
+            <p><strong>Brief About Plant:</strong> {{ plant.about }}</p>
+            <p><strong>Is Edible:</strong> {% if plant.is_edible == 1 %} Yes {% else %} No {% endif %}</p>
+            <p><strong>Used for:</strong> {{ plant.used_for }}</p>
+            <div class="button-container">
+                <a href="{% url 'plant:plant_update' plant.id %}" class="update-btn">Update</a>
+                <a href="{% url 'plant:plant_delete' plant.id %}" class="delete-btn">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-heading">Comments</h2>
+<div class="comment-section">
+    {% for comments in comment %}
+        <div class="comment-card">
+            <div class="comment-header">
+                <h4>{{ comments.full_name }}</h4>
+                <p class="comment-date">{{ comments.created_at }}</p>
+            </div>
+            <p class="comment-content">{{ comments.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<h2 class="section-heading">Add Comment</h2>
+<form class="comment-form" action="{% url 'plant:add_comment' plant.id %}" method="post">
+    {% csrf_token %}
+    <input class="form-input" name="full_name" required minlength="3" placeholder="Full Name"/>
+    <textarea class="form-textarea" name="content" required minlength="3" placeholder="Content"></textarea>
+    <input type="submit" class="submit-comment" value="Add Comment" />
+</form>
+{% endblock %}

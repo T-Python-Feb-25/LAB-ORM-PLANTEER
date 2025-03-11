@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% block title %} update Plants {% endblock %}
+
+{% block content %} 
+<div class="container d-flex justify-content-center ">
+
+    <div class="col-6">
+
+        <form class="d-flex flex-column gap-2" action="{% url 'plant:plant_update' plant.id%}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" placeholder="Name" name="name" class="form-control" value="{{plant.name}}"/>
+            <textarea placeholder="About" name="about" class="form-control">{{plant.about}}</textarea>
+            <textarea placeholder="Used_for" name="used_for" class="form-control">{{plant.used_for}}</textarea>
+            <select class="form-select" name="category">
+                <option >category</option>
+                <option value="Annuals" {% if plant.category == "Annuals" %}selected{% endif %}>Annual</option>
+                <option value="Herbs" {% if plant.category == "Herbs" %}selected{% endif %}>Herb</option>
+                <option value="Shrubs" {% if plant.category == "Shrubs" %}selected{% endif %}>Shrub</option>
+                <option value="Trees" {% if plant.category == "Trees" %}selected{% endif %}>Tree</option>
+                <option value="Fruits" {% if plant.category == "Fruits" %}selected{% endif %}>Fruit</option>
+                <option value="Vegetables" {% if plant.category == "Vegetables" %}selected{% endif %}>Vegetable</option>
+            </select>
+            <select class="form-select" name="is_edible">
+                <option>is_edible</option>
+                <option value="True" {% if plant.is_edible == 1 %}selected{% endif %}>Yes</option>
+                <option value="False" {% if plant.is_edible == 0 %}selected{% endif %}>No</option>
+            </select>
+            <div class="row">
+                <div class="col-3">
+                    <img src="{{plant.image.url}}" class="w-100">
+                </div>
+                <div class="col">
+                    <input type="file" name="image" class="form-control"/>
+                </div>
+            </div>
+
+
+            <input type="submit" value="Update plants" class="btn btn-primary bg-black" />
+
+        </form>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+
+<div class="search">
+    <div class="hero-content">
+        <h2>Planteer</h2>
+        <h3>Plant Database for Plants Lovers</h3>
+        <form action="{% url 'plant:search_plant' %}" method="get" class="search-bar">
+            <input type="text" name="search" placeholder="Search For Plant...">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</div>
+
+<div class="home">
+    <div class="top">
+        <h2>Plants</h2>
+        <a href="{% url 'plant:plant_view' %}">more</a>
+    </div>
+    <div class="plant-grid">
+        {% for plants in plant %}
+            <div class="plant-card">
+                <a href="{% url 'plant:plant_detail' plants.id %}">
+                    <h3>{{ plants.name }}</h3>
+                </a>
+                    <img src="{{ plants.image.url }}" alt="{{ plants.name }}" />
+                <p>{{ plants.about }}</p>
+                <p>{{ plants.category }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

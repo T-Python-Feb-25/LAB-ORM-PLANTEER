@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.search {
+    background: url('../image/pexels-element5-1470171.jpg') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    height: 400px;
+    position: relative;
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-content h3 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar input[type="submit"] {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.home {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.top h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+}
+
+.top a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.top a:hover {
+    color: #555;
+}
+
+
+.plant-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+.plant-main {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.plant-image {
+    flex: 1;
+}
+
+.plant-image img {
+    width: 80%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.plant-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.plant-info h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.plant-info p {
+    font-size: 16px;
+    color: #000;
+    margin: 5px 0;
+}
+
+.plant-info p strong {
+    font-weight: bold;
+    color: #666;
+    margin-right: 5px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.update-btn {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.update-btn:hover {
+    background-color: #555;
+}
+
+.delete-btn {
+    padding: 8px 15px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+.plant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.plant-card {
+    border: 1px solid #e0e0e0;
+    text-align: center;
+    padding: 10px;
+}
+
+.plant-card a {
+    text-decoration: none;
+    color: #333;
+}
+
+.plant-card a:hover h3 {
+    color: #555;
+}
+
+.plant-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+    color: #000;
+}
+
+.plant-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.plant-card p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #000;
+}
+
+
+.h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+
+.section-heading {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    padding: 30px 0 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+
+.comment-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment-card {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-header h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+
+.comment-date {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+.comment-content {
+    font-size: 16px;
+    color: #000;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+.comment-form {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+.submit-comment {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    align-self: flex-end;
+    width: fit-content;
+}
+
+.submit-comment:hover {
+    background-color: #555;
+}
+
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.search-form input[type="search"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-form input[type="submit"] {
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+.filter-section {
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.filter-form {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-group label {
+    font-weight: bold;
+}
+
+.filter-group select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    .search {
+        height: 250px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content h3 {
+        font-size: 18px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .plant-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .plant-image img {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .plant-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .comment-section {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .plant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .top {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
