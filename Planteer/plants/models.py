@@ -1,6 +1,11 @@
 from django.db import models
 
 # Create your models here.
+class Requirement(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+
+    def __str__(self):
+        return self.name
 
 class Plant(models.Model):
     class PlantsCategory(models.TextChoices):
@@ -16,6 +21,8 @@ class Plant(models.Model):
     category = models.CharField(choices=PlantsCategory.choices,max_length=100)
     is_edible = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
+    requirements = models.ManyToManyField(Requirement)
+
 
     def __str__(self):
         return self.name

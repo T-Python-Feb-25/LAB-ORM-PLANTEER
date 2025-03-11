@@ -16,6 +16,13 @@
         <h5><strong>Used For:</strong> {{ plants.used_for }}</h5>
         <h5><strong>Is edible?</strong> {% if plants.is_edible %}Yes{% else %}No{% endif %}</h5>
         <h5><strong>Category:</strong> {{ plants.category }}</h5>
+        <h5><strong>Requirements:</strong><ul class="list-none p-30 m-0">
+                {% for r in plants.requirements.all %}
+                    <li class="m-0 p-0">{{ r }}</li>
+                {% endfor %}
+            </ul></h5>
+
+
         <p class="text-muted">{{ plants.created_at }}</p>
 
 
@@ -30,9 +37,8 @@
 
 <br><br>
 
+
 <hr>
-
-
 
 <h2>Comments ({{comments.count}})</h2>
 
