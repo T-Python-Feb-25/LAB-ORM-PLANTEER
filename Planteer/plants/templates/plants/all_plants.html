@@ -1,0 +1,60 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="container">
+    <h1 class="my-4">All Plants</h1>
+
+    <!-- Filter Form -->
+    <form method="get" class="mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <label for="category">Category:</label>
+                <select name="category" id="category" class="form-control">
+                    <option value="">All Categories</option>
+                    <option value="Flowers">Flowers</option>
+                    <option value="Trees">Trees</option>
+                    <option value="Shrubs">Shrubs</option>
+                    <option value="Herbs">Herbs</option>
+                    <option value="Vegetables">Vegetables</option>
+                    <option value="Fruits">Fruits</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="is_edible">Edible:</label>
+                <div class="form-check">
+                    <input type="checkbox" name="is_edible" id="is_edible" class="form-check-input">
+                    <label for="is_edible" class="form-check-label">Show Edible Plants Only</label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary mt-4">Filter</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Plant Cards -->
+    <div class="row">
+        {% for plant in plants %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+               <img src="{{ plant.image.url }}" class="card-img-top" alt="{{ plant.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ plant.name }}</h5>
+                    <p class="card-text">
+                        <strong>Category:</strong> {{ plant.category }}<br>
+                        <strong>Edible:</strong> {% if plant.is_edible %}Yes{% else %}No{% endif %}
+                    </p>
+
+                    <a href="{% url 'plants:plant_detail' plant.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col">
+            <p>No plants found.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+

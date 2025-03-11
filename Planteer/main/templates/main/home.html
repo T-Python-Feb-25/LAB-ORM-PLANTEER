@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<h1>Welcome to Planteer!</h1>
+<p>Explore our collection of plants.</p>
+<a href="{% url 'plants:all_plants' %}" class="btn btn-primary">View All Plants</a>
+{% endblock %}
+

@@ -1,0 +1,76 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">{{ plant.name }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Plant Image with Fixed Size -->
+            <div class="plant-image-container">
+                <img src="{{ plant.image.url }}" class="plant-image img-fluid rounded" alt="{{ plant.name }}">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p><strong>Category:</strong> {{ plant.category }}</p>
+            <p><strong>Edible:</strong> {% if plant.is_edible %}Yes{% else %}No{% endif %}</p>
+            <p><strong>Description:</strong> {{ plant.description }}</p>
+            <a href="{% url 'plants:update_plant' plant.id %}" class="btn btn-warning">Edit</a>
+            <a href="{% url 'plants:delete_plant' plant.id %}" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+
+    <!-- Related Plants Section -->
+    <h2 class="my-4">Related Plants</h2>
+    <div class="row">
+        {% for related_plant in related_plants %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <!-- Related Plant Image with Fixed Size -->
+                <div class="plant-image-container">
+                    <img src="{{ related_plant.image.url }}" class="plant-image card-img-top" alt="{{ related_plant.name }}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ related_plant.name }}</h5>
+                    <a href="{% url 'plants:plant_detail' related_plant.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col">
+            <p>No related plants found.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Comments Section -->
+    <h2 class="my-4">Comments</h2>
+    <div class="comment-form mb-4">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_full_name">Your Name</label>
+                {{ form.full_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_content">Your Comment</label>
+                {{ form.content }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Comment</button>
+        </form>
+    </div>
+
+    <div class="comments-list">
+        {% for comment in comments %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ comment.full_name }}</h5>
+                <p class="card-text">{{ comment.content }}</p>
+                <p class="text-muted">{{ comment.created_at }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>No comments yet. Be the first to comment!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
