@@ -1,0 +1,39 @@
+<!-- filepath: c:\Users\huawei\Desktop\ad\LAB-ORM-PLANTEER\Planteer\main\templates\html\search_plant.html -->
+{% extends 'html/base.html' %}
+
+{% block title %}Search Results - Planteer{% endblock %}
+
+{% block content %}
+<!-- Search Form -->
+<div class="search-container">
+    <form action="{% url 'search_plants' %}" method="post">
+        {% csrf_token %}
+        <input type="text" id="search" name="search" required placeholder="Search For Plant..." style="padding: 15px 468px;">
+        <button type="submit" class="submit-btn" style="padding: 15px 20px">Search</button>
+    </form>
+</div>
+
+<h1>Search Results for "{{ query }}"</h1>
+<div class="plant-items">
+    {% if plants %}
+        {% for plant in plants %}
+            <div class="plant-item" style="width: 27%;">
+                {% if plant.image %}
+                    <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-image">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                <br>
+                <b>{{ plant.name }}</b> <br>
+                {{ plant.about }} <br>
+                <b>{{ plant.category }}</b> <br>
+                <a href="{% url 'plant_detail' plant.id %}" class="view-details">View Details</a>
+                <a href="{% url 'update_plant' plant.id %}" class="update-btn">Update</a>
+                <a href="{% url 'delete_plant' plant.id %}" class="delete-btn">Delete</a>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No plants found matching your search criteria.</p>
+    {% endif %}
+</div>
+{% endblock %}

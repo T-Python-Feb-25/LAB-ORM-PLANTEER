@@ -1,0 +1,45 @@
+<!-- filepath: c:\Users\huawei\Desktop\planteer\LAB-ORM-PLANTEER\Planteer\main\templates\html\plant_detail.html -->
+{% extends 'html/base.html' %}
+
+{% block title %}{{ plant.name }} - Planteer{% endblock %}
+
+{% block content %}
+<div class="plant-detail-container">
+    <div class="plant-detail-image">
+        {% if plant.image %}
+            <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-image">
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+    </div>
+    <div class="plant-detail-info">
+        <h1>{{ plant.name }}</h1>
+        <p><strong>About:</strong> {{ plant.about }}</p>
+        <p><strong>Used For:</strong> {{ plant.used_for }}</p>
+        <p><strong>Category:</strong> {{ plant.category }}</p>
+        <p><strong>Edible:</strong> {{ plant.is_edible|yesno:"Yes,No" }}</p>
+        <p><strong>Created At:</strong> {{ plant.created_at }}</p>
+        <a href="{% url 'update_plant' plant.id %}" class="update-btn">Update</a>
+        <a href="{% url 'delete_plant' plant.id %}" class="delete-btn">Delete</a>
+    </div>
+</div>
+
+<!-- Related Posts Section -->
+<div class="related-posts">
+    <h2>Related Plants</h2>
+    <div class="related-items">
+        {% for related_plant in related_plants %}
+            <div class="related-item">
+                {% if related_plant.image %}
+                    <img src="{{ related_plant.image.url }}" alt="{{ related_plant.name }}" class="related-plant-image">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                <br>
+                <b>{{ related_plant.name }}</b> <br>
+                <a href="{% url 'plant_detail' related_plant.id %}" class="view-details">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
