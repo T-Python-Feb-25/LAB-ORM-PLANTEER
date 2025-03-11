@@ -329,24 +329,64 @@ footer {
     border: 1px solid #bee5eb;
 }
 
-.filter-form {
-    margin-bottom: 20px;
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-container ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-container ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .plant-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plant-item {
+        width: 100%;
+    }
+
+    .related-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .related-item {
+        width: 100%;
+    }
+
+    .plant-detail-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .plant-detail-image, .plant-detail-info {
+        width: 100%;
+    }
 }
 
-.filter-form label {
-    margin-right: 10px;
-}
+@media (max-width: 480px) {
+    .nav-container .logo img {
+        width: 100px;
+    }
 
-.filter-form select {
-    margin-right: 20px;
-}
+    .plant-image {
+        width: 100%;
+        height: auto;
+    }
 
-.filter-form button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    .related-plant-image {
+        width: 100%;
+        height: auto;
+    }
 }
-
