@@ -44,8 +44,6 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .search-bar input[type="submit"] {
@@ -185,10 +183,7 @@
 }
 
 .plant-card {
-    background-color: #fff;
     border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
     text-align: center;
     padding: 10px;
 }
@@ -253,9 +248,7 @@
 }
 
 .comment-card {
-    background-color: #f9f9f9;
     border: 1px solid #e0e0e0;
-    border-radius: 10px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -300,18 +293,14 @@
 
 .form-input {
     padding: 10px;
-    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
 }
 
 .form-textarea {
     padding: 10px;
-    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #fff;
     min-height: 100px;
     resize: vertical;
 }
@@ -345,8 +334,6 @@
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    background-color: #fff;
 }
 
 .search-form input[type="submit"] {
@@ -361,4 +348,84 @@
 
 .search-form input[type="submit"]:hover {
     background-color: #555;
+}
+
+.filter-section {
+    margin: 20px 0;
+    padding: 15px;
+}
+
+.filter-form {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-group label {
+    font-weight: bold;
+}
+
+.filter-group select {
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    .search {
+        height: 250px;
+    }
+
+    .hero-content h2 {
+        font-size: 32px;
+    }
+
+    .hero-content h3 {
+        font-size: 18px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .plant-main {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .plant-image img {
+        width: 100%;
+        max-height: 300px;
+    }
+
+    .plant-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .comment-section {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .plant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .top {
+        flex-direction: column;
+        gap: 10px;
+    }
 }

@@ -6,6 +6,32 @@
 {% block content %}
 <h1 class="h1">All Plants</h1>
 
+
+<div class="filter-section">
+    <form method="get" class="filter-form">
+        <div class="filter-group">
+            <label for="category">Category:</label>
+            <select name="category" id="category" onchange="this.form.submit()">
+                <option value="">All Categories</option>
+                {% for value, label in categories %}
+                    <option value="{{ value }}" {% if request.GET.category == value %}selected{% endif %}>
+                        {{ label }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label for="is_edible">Edible:</label>
+            <select name="is_edible" id="is_edible" onchange="this.form.submit()">
+                <option value="">All</option>
+                <option value="true" {% if request.GET.is_edible == 'true' %}selected{% endif %}>Yes</option>
+                <option value="false" {% if request.GET.is_edible == 'false' %}selected{% endif %}>No</option>
+            </select>
+        </div>
+    </form>
+</div>
+
 <div class="plant-grid">
     {% for plants in plant %}
         <div class="plant-card">
@@ -15,7 +41,7 @@
             <img src="{{ plants.image.url }}" alt="{{ plants.name }}" class="plant-image" loading="lazy" />
             <p>{{ plants.about }}</p>
             <p>{{ plants.category }}</p>
-            <p>{{ plants.is_edible }}</p>
+            <p>{% if plants.is_edible %}Yes{% else %}No{% endif %}</p>       
         </div>
     {% endfor %}
 </div>

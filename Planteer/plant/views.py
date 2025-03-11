@@ -22,9 +22,20 @@ def plant_detail(request:HttpRequest , plant_id:int):
     comment = Comment.objects.filter(plant=plant)
     return render(request,'plant/plant_detail.html',{"plant" : plant , "comment" : comment})
 
-def plant_view(request:HttpRequest ,):
-    plant = Plants.objects.all()
-    return render(request,"plant/plant_view.html",{"plant" : plant})
+def plant_view(request: HttpRequest):
+    plants = Plants.objects.all()
+    
+    category = request.GET.get('category')
+    is_edible = request.GET.get('is_edible')
+    
+    if category:
+        plants = plants.filter(category=category)
+    
+    if is_edible and is_edible != '':
+        is_edible = is_edible.lower() == 'true'
+        plants = plants.filter(is_edible=is_edible)
+    
+    return render(request, "plant/plant_view.html", {"plant": plants,"categories": Plants.CategoryChoices.choices })
 
 def plant_update(request:HttpRequest,plant_id:int):
 
