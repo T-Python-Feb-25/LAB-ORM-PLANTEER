@@ -1,0 +1,66 @@
+{%extends 'main/base.html'%}
+{%block title%} {{plant.name}} {%endblock%}
+{%block content%}
+
+
+<hr>
+<div class="container mt-4">
+    <div class="card shadow-lg rounded border-0">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <div class="ratio ratio-16x9 rounded-start">
+                    <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="object-fit-cover w-100 h-100 rounded">
+                </div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="col-md-6 d-flex flex-column justify-content-center p-4">
+                <h2 >{{ plant.name }}</h2>
+                <p class="text-muted mb-2">Category: <span class="fw-semibold">{{ plant.category }}</span></p>
+                <p class="mb-3"><strong>Used For:</strong> {{ plant.used_for }}</p>
+                <p class="mb-3"><strong>About:</strong> {{ plant.about }}</p>
+                {% if plant.is_edible %}
+                    <p class="mb-3">Edible ✅</p>
+                {% else %}
+                    <p class="mb-3">Not Edible ❌</p>
+                {% endif %}
+
+                <small class="text-secondary">📅 Published on: {{ plant.created_at|date:"F d, Y H:i" }}</small>
+
+                <!-- Action Buttons -->
+                <div class="mt-4">
+                    <a href="{% url 'plants:plant_update_view' plant.id %}" class="btn btn-outline-primary me-2">
+                        Update
+                    </a>
+                    <a href="{% url 'plants:plant_delete_view' plant.id %}" class="btn btn-outline-danger">
+                        Delete
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+    <h1>Comments </h1>
+    <div class="d-flex flex-column gap-3 p-3 shadow-">
+            {%for comment in comments %}
+            <div class="comment-box p-3 rounded shadow-lg">
+                <h3>{{comment.name}}</h3>
+                <p>{{comment.comment}}</p>
+                <p>{{comment.published_at}}</p>
+            </div>
+            {%endfor%}
+    <hr>
+    <h1 class="mt-5">Add comment</h1>
+    <div class="d-flex flex-column gap-2">
+        <form class="d-flex flex-column" method="post" action="{%url 'plants:add_comment_view' plant.id %}">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name">
+            <textarea name="comment" placeholder="Your comment ... "></textarea>
+            <input type="submit" value="Add comment" class="btn btn-primary">
+        </form>
+    </div>
+
+    {%endblock%}

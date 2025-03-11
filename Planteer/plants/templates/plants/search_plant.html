@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title %}Planteer - search{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Search results : </h1>
+        <div class="row">
+        {% for plant in plants %}
+            {% if forloop.counter0|divisibleby:3 %}
+                {% if not forloop.first %}
+                    </div><div class="row shadow my-3">
+                {% else %}
+                    <div class="row shadow my-3">
+                {% endif %}
+            {% endif %}
+            
+            <div class="col-md-4 mb-4">
+                <div class="d-flex">
+                    <div class="ratio ratio-1x1" style="width: 100px;">
+                        <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="object-fit-cover rounded">
+                    </div>
+                    <div class="ms-3">
+                        <a href="{%url 'plants:plant_detail_view' plant.id %}" class="text-decoration-none text-black">
+                        <h5 class="mb-1">{{ plant.name }}</h5>
+                        </a>
+                        <p class="mb-1">{{ plant.category }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            {% if forloop.last %}
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>No plants found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
