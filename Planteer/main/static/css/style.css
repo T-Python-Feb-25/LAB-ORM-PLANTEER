@@ -74,6 +74,13 @@ nav {
     /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 
+.line {
+    border: 0;
+    height: 1px; 
+    background-color: #000; 
+    margin-top: 1rem;
+}
+
 /* Footer */
 footer {
     background-color: #ffffff;
@@ -107,7 +114,7 @@ footer {
 }
 
 .socials a:hover {
-    color: #82b6a5;  /* Change color on hover */
+    color: #3b3c3c;  /* Change color on hover */
 }
 
 .home-container {
@@ -329,7 +336,27 @@ footer {
     border: 1px solid #bee5eb;
 }
 
+.filter-form{
+    display:flexbox;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
 
+.filter-btn{
+    background-color: #000000;
+    color: rgb(233, 233, 233);
+    padding: 7px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.filter-btn:hover {
+    transform: scale(1.1);
+}
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .nav-container {
