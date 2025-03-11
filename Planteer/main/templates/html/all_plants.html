@@ -1,0 +1,36 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block title %}All Plants - Planteer{% endblock %}
+
+{% block content %}
+    <div class="plants-list">
+        <div class="plants-header">
+            <h1>All Plants</h1>
+        </div>
+
+        <div class="plant-items">
+            {% for plant in plants %}
+                <div class="plant-item">
+                    <!-- Displaying the image properly -->
+                    {% if plant.image %}
+                        <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="plant-image">
+                    {% else %}
+                        <p>No image available</p>
+                    {% endif %}
+                    <br>
+                    <b>{{ plant.name }}</b> <br>
+                    {{ plant.about }} <br>
+                    <!--{{ plant.used_for }} <br>
+                    {{ plant.is_edible }} <br>
+                    {{ plant.created_at }} <br>
+                    -->
+                    <b>{{ plant.category }}</b> <br>
+
+                    <a href="{% url 'plant_detail' plant.id %}" class="view-details">View Details</a>
+                    <a href="{% url 'update_plant' plant.id %}" class="update-btn">Update</a>
+                    <a href="{% url 'delete_plant' plant.id %}" class="delete-btn">Delete</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

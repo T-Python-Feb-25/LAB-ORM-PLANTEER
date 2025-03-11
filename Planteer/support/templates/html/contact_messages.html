@@ -1,0 +1,29 @@
+<!-- contact/templates/contact/contact_messages.html -->
+{% extends 'base.html' %}
+
+{% block title %}Contact Us Messages - Planteer{% endblock %}
+
+{% block content %}
+<h2>Contact Messages</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Sent At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for message in messages %}
+        <tr>
+            <td>{{ message.name }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.message }}</td>
+            <td>{{ message.sent_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
