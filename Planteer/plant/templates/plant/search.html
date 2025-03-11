@@ -12,7 +12,7 @@
 </form>
 
 <div class="plant-grid">
-    {% for plants in plant %} <!-- Corrected loop variable to 'plants' -->
+    {% for plants in plant %}
         <div class="plant-card">
             <img src="{{ plants.image.url }}" alt="{{ plants.name }}" class="plant-image" loading="lazy" />
             <a href="{% url 'plant:plant_detail' plants.id %}"><h3>{{ plants.name }}</h3></a>
