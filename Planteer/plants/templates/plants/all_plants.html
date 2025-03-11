@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+
+{% block title %} all plant page {% endblock %}
+
+{% block content %}
+
+<h1>Plants</h1>
+
+<div class="row mt-2 row-cols-1 row-cols-md-3 g-4">
+
+<!--    -->
+
+     <div class="d-flex gap-3 w-12">
+        <form action="{% url 'plants:all_plants_view'%}" method="get">
+
+
+           <select name="is_edible" class="form-select">
+            <option value="">Is it edible?</option>
+            <option value="True" {% if request.GET.is_edible == 'True' %}selected{% endif %}>Yes</option>
+            <option value="False" {% if request.GET.is_edible == 'False' %}selected{% endif %}>No</option>
+        </select>
+
+            <select name="category" class="form-select">
+            <option value="">Choose Category</option>
+            <option value="indoor" {% if request.GET.category == 'indoor' %}selected{% endif %}>Indoor Plants</option>
+            <option value="outdoor" {% if request.GET.category == 'outdoor' %}selected{% endif %}>Outdoor Plants</option>
+            <option value="flowering" {% if request.GET.category == 'flowering' %}selected{% endif %}>Flowering Plants</option>
+            <option value="herbs_medical" {% if request.GET.category == 'herbs_medical' %}selected{% endif %}>Herbs & Medicinal Plants</option>
+        </select>
+
+            <input type="submit" value="apply" class="btn btn-dark"/>
+
+
+
+        </form>
+    </div>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for plant in plants %}
+    <div class="col">
+        <div class="d-flex flex-column justify-content-start align-items-center h-100 p-4 gap-2 ">
+            <img src="{{ plant.image.url }}" class="object-fit-cover" style="width: 300px; height: 200px; border-radius: 5%" />
+            <a href="{% url 'plants:plant_detail_view' plant.id %}" class="text-decoration-none">
+                <h3 class="text-center">{{ plant.name }}</h3>
+            </a>
+            <h6 class="text-muted">{{ plant.category }}</h6>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

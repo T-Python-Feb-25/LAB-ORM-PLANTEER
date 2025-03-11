@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+
+{% block title %} main page {% endblock %}
+
+{% block content %}
+
+
+
+<div class="position-relative text-center">
+  <img src="/static/images/planteer-mainpage.png" class="img-fluid" style="max-height: 500px; width: 1000px; object-fit: cover;" alt="Responsive image">
+  <div class="position-absolute top-50 start-50 translate-middle text-black fw-bold">
+    <h2>Welcome to Planteer</h2>
+    <p>Plants Database For Plants Lovers</p>
+    <form role="search" method="get" action="{% url 'plants:plant_search_view' %}">
+        <input class="form-control" type="search" placeholder="Search For Plants..." aria-label="Search" name="search" value="{{request.GET.search}}" required minlength="3">
+    </form>
+  </div>
+</div>
+
+
+<hr />
+
+
+<hr />
+<a href="{% url 'plants:all_plants_view' %}">
+<div class="d-flex align-items-center justify-content-between " style="color: black;">
+  <h2 class="m-0 p-0" style=" text-decoration: none">Plants</h2>
+  <span class="material-symbols-outlined text-fxl" style=" text-decoration: none">arrow_forward</span>
+</div>
+</a>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for plant in plants %}
+    <div class="col">
+        <div class="d-flex flex-column justify-content-start align-items-center h-100 p-4 gap-2 ">
+            <img src="{{ plant.image.url }}" class="object-fit-cover" style="width: 300px; height: 200px; border-radius: 5%" />
+            <a href="{% url 'plants:plant_detail_view' plant.id %}" class="text-decoration-none">
+                <h3 class="text-center">{{ plant.name }}</h3>
+            </a>
+            <h6 class="text-muted">{{ plant.category }}</h6>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

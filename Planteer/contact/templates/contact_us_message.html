@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Contact Us Message Page {% endblock %}
+
+{% block content %}
+
+<h1>Messages From Users</h1>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-1">
+    {% for contact in contacts %}
+    <div class="col">
+        <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4  ">
+                <h3 class="">{{ contact.first_name }} {{ contact.last_name }}</h3>
+                <p style="color: dodgerblue">{{contact.email}}</p>
+                <P>{{contact.message}}</P>
+                <p class="text-muted">{{contact.created_at }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+{% endblock %}

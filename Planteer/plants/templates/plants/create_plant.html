@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+
+{% block title %} create plant {% endblock %}
+
+{% block content %}
+<h1>Create Posts About Plants</h1>
+
+<div class="row">
+
+    <div class="col-6">
+
+        <form class="d-flex flex-column gap-2" action="{% url 'plants:create_plants_view' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>Plant Name:</label>
+            <input type="text" placeholder="name" name="name" class="form-control" required minlength="5" maxlength="512"/>
+            <label>About The Plant</label>
+            <textarea placeholder="about" name="about" class="form-control" required></textarea>
+          <label>This Plant Is Used For:</label>
+            <textarea placeholder="used for" name="used_for" class="form-control" required></textarea>
+
+          <label>Choose Plants Category:</label>
+            <select name="category" class="form-control" required>
+                <option value="indoor">Indoor Plants</option>
+                <option value="outdoor">Outdoor Plants</option>
+                <option value="flowering">Flowering Plants</option>
+                <option value="herbs_medical">Herbs & Medicinal Plants</option>
+            </select>
+
+
+
+
+          <label>Is the plant edible?</label>
+              <select name="is_edible" id="is_edible" class="form-control" required>
+                  <option value="True">Yes</option>
+                  <option value="False">No</option>
+              </select>
+          <label>Requirements:</label>
+            <div class="d-inline gap-4">
+                {% for r in requirements %}
+                    <input class="form-check-input" type="checkbox" name="requirements" id="check-{{r.id}}" value="{{r.id}}">
+                      <label class="form-check-label" for="check-{{r.id}}">{{r.name}}</label>
+                {% endfor %}
+            </div>
+
+
+
+
+
+            <input type="file" name="image" class="form-control" required accept="image/*"/>
+
+
+
+            <input type="submit" value="Create Post" class="btn btn-primary" />
+
+        </form>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
