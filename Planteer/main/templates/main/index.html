@@ -1,0 +1,42 @@
+{% extends 'main/base.html'%}
+{% load static %}
+{% block content%}
+<div class="row row-cols-1 hero-row">
+  <div class="col overflow-hidden hero p-0 mt-2">
+      <img src="{% static 'images/2 (2).png'%}"/> 
+      <div class="hero-text">
+          <h1>Planteer</h1>
+          <h3>Plant Database For Plants Lovers</h3>
+      </div>
+  </div>
+</div>
+<hr/>
+<a href="{% url 'plants:all_plants_view'%}">
+<div class="d-flex align-items-center justify-content-between ">
+  <h2 class="m-0 p-0">Plants</h2>
+  <span class="d-flex align-items-center text-fxl">
+  <span class="text-fxl ">More</span>
+  <span class="material-symbols-outlined text-fxl">arrow_forward </span>
+  </span>
+</div>
+</a>
+<div class="row mt-2 row-cols-1 row-cols-md-3 g-4">
+
+  {% for plant in plants %}
+    <div class="col">
+        
+      <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+        <img src="{{plant.image.url}}" class="w-100 poster-thumb object-fit-cover"/>
+        <a href="{% url 'plants:plants_detail_view' plant.id%}"><h3>{{plant.name}}</h3></a>
+        <p class="text-muted">{{plant.about}}</p>
+        <h4>{{plant.category}}</h4>
+    </div>
+</div>
+  {% endfor %}
+
+
+</div>
+
+
+
+{% endblock %}

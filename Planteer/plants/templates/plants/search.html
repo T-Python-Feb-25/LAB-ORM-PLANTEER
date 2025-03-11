@@ -1,0 +1,62 @@
+{% extends 'main/base.html' %}
+{% block content %}
+{% if filtered_plants.exists %}
+
+<h1>
+    Result Plants {{ search_query }}
+</h1>
+{% else%}
+<p class="bg-warning p-3 reunded">Not result found for your search "{{request.GET.search_query}}"</p>
+{% endif %}
+<div class="d-flex justify-content-end">
+    <form action="{% url 'plants:search_plants_view' %}" method="GET">
+        <div class="d-flex gap-2">
+            <input type="Search" class="form-control" value="{{ search_query }}" name="Search" />
+            <select name="category" class="form-select">
+                <option value="">All Categories</option>
+                <option value="flower" {% if request.GET.category == "flower" %} selected {% endif %}>Flower</option>
+                <option value="tree" {% if request.GET.category == "tree" %} selected {% endif %}>Tree</option>
+                <option value="vegetable" {% if request.GET.category == "vegetable" %} selected {% endif %}>Vegetable</option>
+                <option value="fruit" {% if request.GET.category == "fruit" %} selected {% endif %}>Fruit</option>
+            </select>
+
+            <select name="is_edible" class="form-select">
+              <option value="">All</option>
+              <option value="True" {% if request.GET.is_edible == "True" %} selected {% endif %}>Edible</option>
+              <option value="False" {% if request.GET.is_edible == "False" %} selected {% endif %}>Not Edible</option>
+          </select>
+
+
+            <input type="submit" value="apply" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mt-2 row-cols-1 row-cols-md-3 g-4">
+    {% for plant in filtered_plants %}
+    <div class="col">
+        <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+            <img src="{{ plant.image.url }}" class="w-100 poster-thumb object-fit-cover" />
+            <a href="{% url 'plants:plants_detail_view' plant.id %}"><h3>{{ plant.name }}</h3></a>
+            <p><strong>About: </strong>{{ plant.about }}</p>
+            <p><strong>Used For: </strong>{{ plant.used_for }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

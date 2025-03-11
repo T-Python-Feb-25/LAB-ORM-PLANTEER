@@ -1,0 +1,37 @@
+{% extends 'main/base.html'%}
+{% block content%}
+<h1>
+  Create Plants
+</h1>
+<div class="row">
+  <div class="col-6">
+    <form class="d-flex flex-column gap-2" action="{% url 'plants:create_plants_view'%}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="name" class="form-control" placeholder="name.."  required minlength="4"/>
+      <textarea type="text" name="about" class="form-control" placeholder="about.." required></textarea>
+      <textarea type="text" name="used_for" class="form-control" placeholder="used_for.." required></textarea>
+      <div class="d-flex gap-2 align-items-center">
+        <h5 class="m-0 p-0">Category: </h5>
+        <div class="cate">
+          {% for val, label in CategoryChoices %}
+          <input type="radio" id="{{ val }}" name="category" value="{{ val }}" required />
+          <label for="{{ val }}" title="text">{{ label }}</label>
+          {% endfor%}
+        </div>
+      </div>
+
+      <!--<input type="text" name="is_edible" class="from-control" placeholder="is_edible.."/>-->
+      <select class="form-control" name="is_edible" required>
+        <option value="">Select Opetion if is edible</option>
+        <option value="Edible">True</option>
+        <option value="No Edible">False</option>
+
+
+      </select>
+      <input type="file" name="image" class="from-control" required accept="image/*"/>
+      <input type="submit" value="Create Plants" class="btn btn-primary"/>
+
+    </form>
+  </div>
+</div>
+{% endblock %}
