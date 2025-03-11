@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="contact-page">
+    <div class="contact-container">
+        <!-- Full-width Title and Description -->
+        <div class="contact-header">
+            <h1 class="contact-title">Contact Us</h1>
+            <p class="contact-description">We'd love to hear from you! Send us a message and we'll get back to you soon.</p>
+        </div>
+
+        <!-- Left Column: Form -->
+        <div class="contact-content">
+            <div class="contact-form-container">
+                <form method="post" class="contact-form">
+                    {% csrf_token %}
+                    <!-- First Name and Last Name in a Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="{{ form.first_name.id_for_label }}">First Name</label>
+                            {{ form.first_name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.last_name.id_for_label }}">Last Name</label>
+                            {{ form.last_name }}
+                        </div>
+                    </div>
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                        {{ form.email }}
+                    </div>
+                    <!-- Subject Field -->
+                    <div class="form-group">
+                        <label for="{{ form.subject.id_for_label }}">Subject</label>
+                        {{ form.subject }}
+                    </div>
+                    <!-- Message Field -->
+                    <div class="form-group">
+                        <label for="{{ form.message.id_for_label }}">Message</label>
+                        {{ form.message }}
+                    </div>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Right Column: Image -->
+            <div class="contact-image-container">
+                <img src="{% static 'images/contact-bg.jpg' %}" alt="Contact Us" class="contact-image">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="add-plant-page">
+    <div class="add-plant-container">
+        <!-- Left Column: Form -->
+        <div class="add-plant-form-container">
+            <h1 class="add-plant-title">Add a New Plant</h1> <!-- Use add-plant-title class -->
+
+            <form method="post" enctype="multipart/form-data" class="add-plant-form" id="add-plant-form">
+                {% csrf_token %}
+
+                <!-- Render the form fields -->
+                <div class="form-group">
+                    <label for="{{ form.name.id_for_label }}">Plant Name</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.category.id_for_label }}">Category</label>
+                    {{ form.category }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.is_edible.id_for_label }}">Is Edible?</label>
+                    {{ form.is_edible }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.description.id_for_label }}">Description</label>
+                    {{ form.description }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.image.id_for_label }}">Plant Image</label>
+                    {{ form.image }}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.related_plants.id_for_label }}">Related Plants</label>
+                    {{ form.related_plants }}
+                </div><br>
+
+                <button type="submit" class="btn btn-submit">Add Plant</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="add-plant-image-container">
+            <!-- Background image will be applied via CSS -->
+        </div>
+    </div>
+</div>
+{% endblock %}

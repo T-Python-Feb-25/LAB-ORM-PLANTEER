@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container update-plant-page">
+    <h1 class="update-plant-title">Update Plant</h1>
+
+    <form method="post" enctype="multipart/form-data" class="update-plant-form">
+        {% csrf_token %}
+
+        <!-- Render the form fields -->
+        <div class="form-group">
+            <label for="name">Plant Name</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ form.name.value }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category" class="form-control" required>
+                <option value="Flowers" {% if form.category.value == "Flowers" %}selected{% endif %}>Flowers</option>
+                <option value="Trees" {% if form.category.value == "Trees" %}selected{% endif %}>Trees</option>
+                <option value="Shrubs" {% if form.category.value == "Shrubs" %}selected{% endif %}>Shrubs</option>
+                <option value="Herbs" {% if form.category.value == "Herbs" %}selected{% endif %}>Herbs</option>
+                <option value="Vegetables" {% if form.category.value == "Vegetables" %}selected{% endif %}>Vegetables</option>
+                <option value="Fruits" {% if form.category.value == "Fruits" %}selected{% endif %}>Fruits</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="is_edible">Is Edible?</label>
+            <input type="checkbox" id="is_edible" name="is_edible" class="form-check-input" {% if form.is_edible.value %}checked{% endif %}>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" class="form-control" rows="5" required>{{ form.description.value }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="image">Plant Image</label>
+            <input type="file" id="image" name="image" class="form-control">
+            {% if plant.image %}
+                <p>Current Image: <a href="{{ plant.image.url }}" target="_blank">{{ plant.image.name }}</a></p>
+            {% endif %}
+        </div>
+
+        <!-- Related Plants Dropdown -->
+        <div class="form-group">
+            <label for="related_plants">Related Plants</label>
+            <select id="related_plants" name="related_plants" class="form-control" multiple>
+                {% for plant_option in form.related_plants.field.queryset %}
+                    <option value="{{ plant_option.id }}" {% if plant_option in plant.related_plants.all %}selected{% endif %}>{{ plant_option.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-submit">Update Plant</button>
+    </form>
+</div>
+{% endblock %}
