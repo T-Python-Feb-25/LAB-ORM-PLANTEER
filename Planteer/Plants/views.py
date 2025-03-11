@@ -42,6 +42,7 @@ def plant_detail(request, plant_id):
         'comments': comments
     })
 
+
 def search_plants(request):
     if "search" in request.GET:
         search_term = request.GET['search']
