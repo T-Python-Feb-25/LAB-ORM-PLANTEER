@@ -30,7 +30,7 @@
                     <a href="{% url 'plants:plant_update_view' plant.id %}" class="btn btn-outline-primary me-2">
                         Update
                     </a>
-                    <a href="{% url 'plants:plant_delete_view' plant.id %}" class="btn btn-outline-danger">
+                    <a href="{% url 'plants:plant_delete_view' plant.id %}" class="btn btn-outline-danger" onclick="return confirm('Are you sure you want to delete {{ plant.name }}?');">
                         Delete
                     </a>
                     
