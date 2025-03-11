@@ -5,3 +5,7 @@ a{
 img{
     border-radius: 20px;
 }
+
+body {
+  font-family: Garamond, serif;
+}

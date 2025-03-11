@@ -19,3 +19,15 @@ class Plant(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Comment(models.Model):
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    plant_relation =models.TextField()
+    full_name = models.CharField(max_length=500)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name
