@@ -1,0 +1,23 @@
+{% extends "app_planteer/base.html" %}
+
+{% block title %}Add Plant{% endblock %}
+
+{% block content %}
+<h2>Add a New Plant</h2>
+<form class="d-flex flex-column gap2" action="{% url 'app_planteer:add_plant'%}" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Plant Name</label>
+        <input type="text" class="form-control" placeholder="Enter plant name" name="name">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" rows="3" placeholder="Enter description" name="description"></textarea>
+    </div>
+
+    <div>
+
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+{% endblock %}

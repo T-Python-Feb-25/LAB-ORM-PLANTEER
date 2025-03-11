@@ -1,0 +1,105 @@
+{% extends "app_planteer/base.html" %}
+{% load static %}
+
+
+{% block title %}All Plants{% endblock %}
+
+{% block content %}
+   <!----<div class="search-container">
+        <img src="{% static 'images/kain.jpg' %}" alt="Plant"> 
+    </div> -->
+
+    <h2>All Plants</h2>
+    <p>Here you will find a list of all plants.</p>
+
+    <!-- Placeholder for plant cards -->
+    <div class="row">
+
+        {%  for plant in planteer %}
+     <div class="col-12 col-md-4">
+         <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ plant.name }}</h5>
+                    <p class="card-text">{{ plant.description }}</p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                 </div> 
+            </div>
+         </div>
+    </div>
+        {%endfor%}
+        <div class="col-12 col-md-4">
+            <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+
+
+            <div class="card">
+                <img src="{% static 'images/kain.jpg' %}" class="card-img-top" alt="Plant">
+                <div class="card-body">
+                    <h5 class="card-title">Sidr</h5>
+                    <p class="card-text">
+                        Sidr is a delicious winter fruit, and is mentioned in the Quran as “Sidr”.
+                        Sidr has many health benefits, as it is rich in fiber, vitamins, and elements that are beneficial to the health of the body.
+                        Dr. Sayed Hammad, Professor of Nutrition at the National Institute of Nutrition, said that Sidr is a good fruit that is 
+                        suitable for diabetics and immune system patients, in addition to its many benefits in helping the body get rid of influenza
+                        because it contains sources of vitamins and minerals that are important for the body,
+                        but it should not be consumed excessively so as not to cause harm to the body.
+                    </p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div class="col-12 col-md-4">
+            <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+
+            <div class="card">
+                <img src="{% static 'images/watermelon.jpg' %}" class="card-img-top" alt="Plant">
+                <div class="card-body">
+                    <h5 class="card-title">Watermelon</h5>
+                    <p class="card-text">
+                        Watermelon is a type of melon that belongs to the Cucurbitaceae family.
+                         It is a summer climbing plant that produces spherical or cylindrical fruits that are light green or dark green in color,
+                          with a sweet-tasting red pulp. Other varieties are produced from it with different pulp colors, such as yellow, orange,
+                           and white, in which black seeds are spread with white pulp. Watermelon analysis found that 100 grams of 
+                           it contains: 90 grams of water, 10 grams of sugar, about half a gram of protein, 7 milligrams of fat, about 9 milligrams
+                            of calcium, 5 milligrams of vitamin A, 10 milligrams of vitamin C, about 30 milligrams of iron, 3 milligrams of sodium,
+                             20 milligrams of magnesium, 15 milligrams of phosphorus, and about 15 milligrams of potassium. 100 grams also give the
+                              body about 50 calories. Watermelon seeds are rich in highly beneficial proteins, amounting to 30 milligrams
+                               in (10 grams) of seeds, with a high percentage of unsaturated fats that are nutritionally beneficial, especially 
+                               the one called (Omega), which helps in reducing cholesterol levels in the blood. Watermelon fruit is used 
+                               as a stimulating and hydrating food, and various jams are made from it. Watermelon fruits ripen within (3-4) months
+                                from the start of planting the seeds. When tapped, the ripe fruit makes a muffled sound, while when unripe, 
+                                the sound is resonant.
+                    </p>
+                    <a href="#" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+         </div> 
+          </div> 
+
+                <div class="col-12 col-md-4">
+                    <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow gap-2">
+
+                    <div class="card">
+                        <img src="{% static 'images/vegetable.jpg' %}" class="card-img-top" alt="Plant">
+                        <div class="card-body">
+                            <h5 class="card-title">Vegetables</h5>
+                            <p class="card-text">
+                                Vegetables is a term used for any type of herbaceous plant that is used partially or completely in cooking 
+                                to prepare food for humans. Mushrooms are also included among vegetables, although they are not considered plants,
+                                 but fungi. Vegetables can be independent parts of plants, such as leaves (lettuce, cabbage, grape leaves
+                                  (grapes are considered fruits)), the stem of the plant (asparagus), the root (carrots or beets), 
+                                  bulbs (garlic and onions), or seeds (beans and peas). And of course, fruits in many cases, such as peppers, 
+                                  cucumbers, pumpkins, and squash.
+                            </p>
+                            <a href="#" class="btn btn-primary">View Details</a>
+                        </div>    
+                    </div>
+                </div>
+
+                </div>
+                </div>
+{% endblock %}

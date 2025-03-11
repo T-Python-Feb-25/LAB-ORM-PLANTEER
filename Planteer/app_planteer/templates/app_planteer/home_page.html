@@ -1,0 +1,58 @@
+{% extends "app_planteer/base.html" %}
+{% load static %}
+
+{% block title %}Home - Planteer{% endblock %}
+
+{% block content %}
+<div class="search-container">
+    <h1 class="text-center">Planteer</h1>
+    <p class="text-center">Plant Database for Plant Lovers</p>
+
+    <!-- 🔍 محرك البحث -->
+    <form method="GET" action="{% url 'app_planteer:search_plants' %}" class="d-flex justify-content-center">
+        <input type="text" name="q" class="form-control w-50" placeholder="Search for a plant..." required>
+        <button type="submit" class="btn btn-success ms-2">Search</button>
+    </form>
+</div>
+
+<div class="plants_explor">
+    <h2 class="txt-left">Plants</h2>
+    <p class="txt-left">Learn more about plants</p>
+    <li class="nav-item-right"><a class="nav-link" href="{% url 'app_planteer:all_plants' %}">More</a></li>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-4">
+
+
+        <div class="card">
+            <img src="{% static 'images/kain.jpg' %}" class="card-img-top" alt="Plant">
+            <div class="card-body">
+                <h5 class="card-title">Sidr</h5>
+               
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-12 col-md-4">
+        <div class="card">
+            <img src="{% static 'images/watermelon.jpg' %}" class="card-img-top" alt="Plant">
+            <div class="card-body">
+                <h5 class="card-title">Watermelon</h5>
+               
+            </div>
+        </div>
+     </div> 
+       
+
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="{% static 'images/vegetable.jpg' %}" class="card-img-top" alt="Plant">
+                    <div class="card-body">
+                        <h5 class="card-title">Vegetables</h5>
+                      
+                    </div>    
+                </div>
+            </div>
+{% endblock %}
