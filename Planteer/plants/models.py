@@ -28,7 +28,7 @@ class Plant(models.Model):
     
     
 class Comment(models.Model):
-    plant = models.ForeignKey(Plant,on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant,on_delete=models.CASCADE,related_name='comments')
     name = models.CharField(max_length=512)
     comment = models.TextField()
     published_at = models.DateTimeField(auto_now_add=True)

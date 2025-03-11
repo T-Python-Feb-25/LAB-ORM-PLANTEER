@@ -7,24 +7,27 @@
 {%block content%} 
 <div class="container">
     <div class="text-center" 
-        style="
-        background: url('/static/images/pexels-element5-1470171.jpg') no-repeat center center;
-        background-size: cover;
-        padding: 50px ;
-        ">
-        <h1 class="fw-bold">Planteer</h1>
-        <p class="fs-4">Plant Database For Plant Lovers</p>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="input-group mb-3">
-                    <form action="{%url 'plants:search_plant_view' %}" method="get">
-                        <input type="text" name="name" class="form-control" placeholder="Search For Plant..." required>
-                        <button class="btn btn-dark" name="search" type="submit">Search</button>
-                    </form>
+    style="
+    background: url('/static/images/pexels-element5-1470171.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 50px;">
+    
+    <h1 class="fw-bold">Planteer</h1>
+    <p class="fs-4">Plant Database For Plant Lovers</p>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form action="{% url 'plants:search_plant_view' %}" method="get">
+                <div class="input-group">
+                    <input type="text" name="name" class="form-control form-control-lg" 
+                        placeholder="Search For Plant..." required>
+                    <button class="btn btn-dark px-4" type="submit" name="search">Search</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
+
+</div>
 </div>
 
 <div class="container mt-5">

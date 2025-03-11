@@ -21,9 +21,10 @@ def all_plants_view(request:HttpRequest):
     return render(request,'plants/all_plants.html',{'plants':plants})
 
 def plant_detail_view(request: HttpRequest, plant_id):
-    plant = Plant.objects.get(pk=plant_id)
-    comments = Comment.objects.filter(plant=plant).order_by('-published_at')  # Order by latest first
-    return render(request, 'plants/plant_detail.html', {'plant': plant, 'comments': comments})
+    plant_obj = Plant.objects.get(pk=plant_id)
+    comments = []
+    comments = Comment.objects.filter(plant=plant_obj)
+    return render(request, 'plants/plant_detail.html', {'plant': plant_obj, 'comments': comments})
 
 def plant_update_view(request: HttpRequest, plant_id):
     plant = Plant.objects.get(pk=plant_id)
@@ -54,6 +55,6 @@ def add_comment_view(request:HttpRequest,plant_id):
         plant_obj = Plant.objects.get(pk=plant_id)
         new_comment = Comment(plant=plant_obj, name=request.POST['name'],comment=request.POST['comment'])
         new_comment.save()
-    return redirect('plant_detail_view',plant_id)
+    return redirect('plants:plant_detail_view',plant_id)
     
     

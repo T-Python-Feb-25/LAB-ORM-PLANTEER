@@ -13,7 +13,6 @@
                 </div>
             </div>
 
-            <!-- Details Section -->
             <div class="col-md-6 d-flex flex-column justify-content-center p-4">
                 <h2 >{{ plant.name }}</h2>
                 <p class="text-muted mb-2">Category: <span class="fw-semibold">{{ plant.category }}</span></p>
@@ -27,7 +26,6 @@
 
                 <small class="text-secondary">📅 Published on: {{ plant.created_at|date:"F d, Y H:i" }}</small>
 
-                <!-- Action Buttons -->
                 <div class="mt-4">
                     <a href="{% url 'plants:plant_update_view' plant.id %}" class="btn btn-outline-primary me-2">
                         Update
@@ -44,22 +42,22 @@
 
 <hr>
     <h1>Comments </h1>
-    <div class="d-flex flex-column gap-3 p-3 shadow-">
+    <div class="d-flex flex-column gap-3 p-3 shadow">
             {%for comment in comments %}
             <div class="comment-box p-3 rounded shadow-lg">
                 <h3>{{comment.name}}</h3>
                 <p>{{comment.comment}}</p>
-                <p>{{comment.published_at}}</p>
+                <p class="text-muted small">{{comment.published_at}}</p>
             </div>
             {%endfor%}
     <hr>
     <h1 class="mt-5">Add comment</h1>
-    <div class="d-flex flex-column gap-2">
+    <div class="col-md-6 d-flex flex-column ">
         <form class="d-flex flex-column" method="post" action="{%url 'plants:add_comment_view' plant.id %}">
             {% csrf_token %}
             <input type="text" name="name" placeholder="Name">
             <textarea name="comment" placeholder="Your comment ... "></textarea>
-            <input type="submit" value="Add comment" class="btn btn-primary">
+            <input type="submit" value="Add comment" class="btn btn-primary bg-black">
         </form>
     </div>
 
