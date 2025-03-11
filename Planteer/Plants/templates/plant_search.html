@@ -18,12 +18,12 @@
                 <div class="plant-info">
                     <h3>{{ plant.name }}</h3>
                     <p>Category: <strong>{{ plant.category }}</strong></p>
-                    <a href="{% url 'plant_detail' plant.id %}" class="btn-detail">View Details</a>
+                    <a href="{% url 'plant_detail' plant.id %}" class="btn-detail">Brief about plant</a>
                 </div>
             </div>
             {% endfor %}
         {% else %}
-            <p>No plants found matching your search.</p>
+            <p>No plants found matching your search. "{{request.GET.search}}"</p>
         {% endif %}
     </div>
 </div>

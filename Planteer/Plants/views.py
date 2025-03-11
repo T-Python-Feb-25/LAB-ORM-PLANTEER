@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .models import Plant
-from .forms import  PlantForm
+from .models import Plant, Comment
+from .forms import  PlantForm, CommentForm
 
 
 def all_plants(request):
@@ -24,10 +24,22 @@ def all_plants(request):
 def plant_detail(request, plant_id):
     plant = Plant.objects.get(pk=plant_id)
     related_plants = Plant.objects.filter(category=plant.category).exclude(id=plant.id)[:3]
+    comments = Comment.objects.filter(plant=plant).order_by('-created_at')
+    
+    form = CommentForm()
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.plant = plant
+            comment.save()
+            return redirect('plant_detail', plant_id=plant.id)
 
     return render(request, 'plant_detail.html', {
         'plant': plant, 
-        'related_plants': related_plants
+        'related_plants': related_plants,
+        'form': form,
+        'comments': comments
     })
 
 def search_plants(request):
