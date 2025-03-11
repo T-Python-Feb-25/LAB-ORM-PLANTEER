@@ -17,8 +17,19 @@ def add_plant_view(request: HttpRequest):
     return render(request, 'plants/add_plant.html', {'form': form})
 
 def all_plants_view(request:HttpRequest):
-    plants = Plant.objects.all()
-    return render(request,'plants/all_plants.html',{'plants':plants})
+    categories = Plant.objects.values_list('category', flat=True).distinct()
+    selected_category = request.GET.get('category', '')
+    
+    if selected_category:
+        plants = Plant.objects.filter(category=selected_category)
+    else:
+        plants = Plant.objects.all()
+    context = {
+        'plants': plants,
+        'categories': categories,
+        'selected_category': selected_category,
+    }
+    return render(request, 'plants/all_plants.html', context)
 
 def plant_detail_view(request: HttpRequest, plant_id):
     plant_obj = Plant.objects.get(pk=plant_id)
