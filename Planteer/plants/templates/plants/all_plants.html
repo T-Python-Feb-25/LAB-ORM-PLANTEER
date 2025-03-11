@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}All Plants{% endblock %}
+
+{% block content %}
+    <h1>All Plants</h1>
+
+    <form method="GET" action="{% url 'all_plants' %}" class="mb-4">
+        <label for="category">Category:</label>
+        <select name="category">
+            <option value="">All</option>
+            <option value="Herb">Herb</option>
+            <option value="indoor">indoor</option>
+            <option value="Flower">Flower</option>
+        </select>
+
+        <label for="is_edible">
+            <input type="checkbox" name="is_edible" value="true"> Edible Plants
+        </label>
+
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+    <div class="row">
+        {% for plant in plants %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="{{ plant.image.url }}" class="card-img-top" alt="{{ plant.name }}">
+
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ plant.name }}</h5>
+                        <p class="card-text">Category: {{ plant.category }}</p>
+                        <a href="{% url 'plant_detail' plant.id %}" class="btn btn-primary">View Details</a>
+                        <a href="{% url 'update_plant' plant.id %}" class="btn btn-warning">Update</a>
+                        <a href="{% url 'delete_plant' plant.id %}" class="btn btn-danger">Delete</a>
+
+                    </div>
+                </div>
+                
+            </div>
+        {% empty %}
+            <p>No plants found. Try changing the filters.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

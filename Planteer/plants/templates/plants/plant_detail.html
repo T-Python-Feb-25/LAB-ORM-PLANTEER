@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ plant.name }} {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="{{ plant.image.url }}" class="plant-detail-image" alt="{{ plant.name }}">
+        </div>
+        <div class="col-md-6 plant-info">
+            <h1 class="plant-title">{{ plant.name }}</h1>
+            <p class="plant-category">🌱 Category: <strong>{{ plant.category }}</strong></p>
+            <p class="plant-description">{{ plant.description }}</p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>💬 Comments</h3>
+<ul class="list-group">
+    {% for comment in comments %}
+        <li class="list-group-item"><strong>{{ comment.full_name }}</strong>: {{ comment.content }}</li>
+    {% empty %}
+        <p>No comments yet. Be the first to comment!</p>
+    {% endfor %}
+</ul>
+
+<h3>💬 Add a Comment</h3>
+<form method="POST">
+    {% csrf_token %}
+    <label for="full_name">Your Name:</label>
+    <input type="text" name="full_name" class="form-control" required>
+
+    <label for="content">Your Comment:</label>
+    <textarea name="content" class="form-control" rows="3" required></textarea>
+
+    <button type="submit" class="btn btn-primary mt-2">Submit Comment</button>
+</form>
+
+<hr>
+
+<h3>🌱 Related Plants</h3>
+<div class="row">
+    {% for related in related_plants %}
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ related.image.url }}" class="card-img-top" alt="{{ related.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ related.name }}</h5>
+                    <p class="text-muted">{{ related.category }}</p>
+                    <a href="{% url 'plant_detail' related.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No related plants found.</p>
+    {% endfor %}
+</div>
+{% endblock %}
