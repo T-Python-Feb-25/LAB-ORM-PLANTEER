@@ -8,6 +8,26 @@
             <h1>All Plants</h1>
         </div>
 
+        <!-- Filter Form -->
+        <form method="GET" class="filter-form">
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+                <option value="">All</option>
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if cat == selected_category %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="is_edible">Is Edible:</label>
+            <select name="is_edible" id="is_edible">
+                <option value="">All</option>
+                <option value="True" {% if selected_is_edible == 'True' %}selected{% endif %}>Yes</option>
+                <option value="False" {% if selected_is_edible == 'False' %}selected{% endif %}>No</option>
+            </select>
+
+            <button type="submit">Filter</button>
+        </form>
+
         <div class="plant-items">
             {% for plant in plants %}
                 <div class="plant-item">

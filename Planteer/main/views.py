@@ -9,8 +9,24 @@ def home(request):
 
 # All Plants page
 def all_plants(request):
+    category = request.GET.get('category')
+    is_edible = request.GET.get('is_edible')
+
     plants = Plant.objects.all()
-    return render(request, 'html/all_plants.html', {'plants': plants})
+
+    if category:
+        plants = plants.filter(category=category)
+    if is_edible:
+        plants = plants.filter(is_edible=is_edible)
+
+    categories = Plant.objects.values_list('category', flat=True).distinct()
+
+    return render(request, 'html/all_plants.html', {
+        'plants': plants,
+        'categories': categories,
+        'selected_category': category,
+        'selected_is_edible': is_edible,
+    })
 
 def search_plants(request):
     query = request.POST.get('search')

@@ -329,3 +329,24 @@ footer {
     border: 1px solid #bee5eb;
 }
 
+.filter-form {
+    margin-bottom: 20px;
+}
+
+.filter-form label {
+    margin-right: 10px;
+}
+
+.filter-form select {
+    margin-right: 20px;
+}
+
+.filter-form button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
