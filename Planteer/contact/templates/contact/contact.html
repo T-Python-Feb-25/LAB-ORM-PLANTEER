@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-6 mt-4">
+      <h1>
+        Contact
+    </h1>    
+      <form class="d-flex flex-column gap-2 mt-2" method="post" action="{% url 'contact:contact_view' %}">
+        {% csrf_token %}
+        <input type="text" name="first_name" class="form-control" placeholder="First name" />
+        <input type="text" name="last_name" class="form-control" placeholder="last name" />
+        <input type="email" name="email" class="form-control" placeholder="email" />
+        <textarea name="message" class="form-control" placeholder="message"></textarea>
+    <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+        </div>
+
+        <div class="col-md-6 mt-3">
+          <img src="https://cdn.salla.sa/xAggK/42c65c32-2728-420e-a8c5-8e241dc1b503-1000x1000-XsM1GL9lEECPAHLAElvG8CFhCIVrWB6R0IVnMqBz.png" alt="" class="img-fluid">
+      </div>
+
+</div>
+{% endblock %}
