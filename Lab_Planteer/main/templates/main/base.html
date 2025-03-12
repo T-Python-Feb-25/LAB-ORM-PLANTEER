@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'CSS\style.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <title>{%block title%} {%endblock%}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="head_nav">
+            <strong> HOME </strong>
+
+            <div class="right">
+                <a href="/"> All Plants</a>
+                <a href="add/plant/"> Add Plant</a>
+                <a href=""> Conect Us</a>
+                <a href="" class="btn"> sign up </a>
+            </div>
+            </nav>
+        </header>
+    
+        <main>
+            {% block content %}
+            
+            
+            {%endblock%} 
+        </main>  
+        <footer>
+            <hr class="line">
+            <div class="the_end">
+                <div class="site">
+                    <strong> site name</strong>
+                    <div class="link">
+                        <a href="https://www.instagram.com/" class="image" ><img src="{% static '\imag\instagram.jpeg' %}" alt="instagram" /></a>
+                        <a href="https://www.snapchat.com/ar"><img src=  "{% static '\image\snapchat.jpeg'%}"alt="instagram" /></a>
+                       
+                    </div>
+                </div>
+
+                <div class="topic">
+                    <h5><b> Topic</b></h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                </div>
+                <div class="topic">
+                    <h5><b> Topic</b></h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                </div>
+                <div class="topic">
+                    <h5><b> Topic</b></h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                    <h5>page</h5>
+                </div>
+
+
+            </div>
+
+        </footer>
+    </div>  
+</body>
+</html>
