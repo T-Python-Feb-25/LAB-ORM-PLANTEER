@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="post-edit-container">
+        <h1>Edit Post: {{ post.title }}</h1>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-submit">Update Post</button>
+        </form>
+
+        <a href="{% url 'main:post_detail' post.id %}" class="btn btn-cancel">Back to Post</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="post-detail-container">
+        <h1 class="post-title">{{ post.title }}</h1>
+
+        <!-- عرض الصورة الخاصة بالنبتة -->
+        {% if post.image %}
+            <div class="post-image-container">
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+            </div>
+        {% endif %}
+
+        <p><strong>Description:</strong> {{ post.description }}</p>
+        <div class="post-content">
+            <h3>Content</h3>
+            <p>{{ post.content }}</p>
+        </div>
+        <small>Published on: {{ post.published_at }}</small>
+
+        <!-- أزرار التحديث والحذف -->
+        {% if user.is_authenticated %}
+            <!-- زر تحديث -->
+            <a href="{% url 'main:update_post' post.id %}" class="btn btn-update">Update</a>
+            
+            <!-- زر حذف -->
+            <form method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" name="delete" class="btn btn-delete">Delete</button>
+            </form>
+        {% endif %}
+
+        <a href="{% url 'main:home' %}" class="btn btn-cancel">Back to Home</a>
+    </div>
+{% endblock %}

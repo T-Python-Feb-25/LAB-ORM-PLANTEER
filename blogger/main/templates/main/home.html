@@ -1,0 +1,35 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="title">
+        <h1>PLANTEER</h1>
+        <h2>Plan Database For Plants Lovers</h2>
+    </div>
+    <div class="Sbar">
+        <div class="add-post">
+            <a href="{% url 'main:search' %}" class="btn-add-post">Search</a>
+        </div>
+        <form role="search" method="get" action="{% url 'main:search' %}">
+            <input class="form-control1" type="search" placeholder="Search" aria-label="Search" name="search">
+        </form>
+    </div>
+    <h2>ALL PLANT</h2>
+    <div class="posts-container">
+        {% for post in posts %}
+            <a href="{% url 'main:post_detail' post.id %}" class="post-link">
+                <article class="post">
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                    {% endif %}
+                    <div class="post-content">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content|truncatewords:30 }}</p>
+                        <small>Published on: {{ post.published_at }}</small>
+                    </div>
+                </article>
+            </a>
+        {% empty %}
+            <p>No published posts yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

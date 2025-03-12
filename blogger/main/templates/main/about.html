@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+
+    <h1>🌿 Welcome to Planteer!</h1>
+    <h4>At Planteer, we believe that plants are not just beautiful decorations, but living beings that add life to our homes and workplaces. Our goal is to create a comprehensive plant database, helping plant lovers easily find the information they need. </h4>
+    <h1>🌱 What do we offer?</h1>
+    <h4><a href="{% url 'main:home' %}">🔍 Comprehensive Search </a>– Easily search for any type of plant and get accurate information.<br>
+    📚 Plant Care Guide – Tips and advice on how to best care for your plants.<br>
+    <a href="{% url 'main:home' %}">🏷️ Plant Classification </a>– Discover plants based on categories such as houseplants, outdoor plants, medicinal plants, and cacti.<br>
+    <a href="{% url 'main:home' %}">💬 Comment System </a>– Share your experiences and thoughts with the community of plant lovers.</h4>
+    <h1>🌍 Why Planteer?</h1>
+    <h4>✅ Up-to-date database – Information is constantly updated to ensure accuracy.<br>
+        ✅ User-friendly design – A convenient and quick interface to access what you need.<br>
+        ✅ Community of plant lovers – Interact with others and share your tips and experiences.</h4>
+    <h1>🌎 Join us!</h1>
+    <h4>Whether you're a beginner or an expert in plant care, Planteer is the perfect place for you. Join us and help spread awareness about the importance of plants in our lives!
+
+        <a href="{% url 'main:contact' %}">📩 Contact us:</a> [email or social media links]<br>
+        💚 Start your plant journey today!</h4>
+{% endblock %}
