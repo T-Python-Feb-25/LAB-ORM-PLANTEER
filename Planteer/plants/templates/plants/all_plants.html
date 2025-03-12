@@ -1,0 +1,19 @@
+{% extends 'main/base.html' %}
+{% block title%} Add plant {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="blatns_view">
+        
+        {% for plant in plants %}
+        <img src="{{game.image.url}}">
+        <a href="{% url 'plants:plants_detail' plant.id %}"><h3>{{plant.name}}</h3></a><
+        <p>{{plant.about}}</p>
+        <p>{{plant.category}}</p>
+
+    </div>
+</main>
+
+{% endblock %}
