@@ -1,0 +1,64 @@
+{%extends 'main/base.html'%}
+{%block title%}Plants {%endblock%}
+
+{%block content%} 
+
+    <section class="home">
+        <div class="home-top">
+            <div class="home-option">
+              <form action="{% url 'plants:all_plants_view' %}" method="get">
+                <div class="space">
+                  <div>
+                    <h3>Plants</h3>
+                  </div>
+                  <div>
+                    <label for="category">category</label>
+                    <select class="custom-select"  name="category" id="category">
+                      <option value="">All Categories</option>
+                      <option value="Vegetable">Vegetable</option>
+                      <option value="Fruit">Fruit</option>
+                      <option value="Tree">Tree</option>
+                    </select>
+                    <label for="is_edible">Is Edible:</label>
+                    <select  class="custom-select" name="is_edible" id="is_edible">
+                      <option value="">All</option>
+                      <option value="True">Edible</option>
+                      <option value="False">Not Edible</option>
+                    </select>
+                    <button class="btn-filter">filter</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          
+
+          <div class="home-grid">
+            {%for plant in plants%}
+            <div class="card-x">
+                <div class="card-img mb-1">
+                <img src="{{plant.image.url}}" alt="plant img">
+            </div>
+                <div class="content mt-2">
+
+                    <a href="{% url 'plants:plant_detail_view' plant.id %}"> <h6>{{plant.name}}</h6></a>
+                    <p>{{plant.about}}</p>
+                <h6>{{plant.category}}</h6>
+                </div>
+            </div>
+            {%endfor%}
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+{%endblock%}

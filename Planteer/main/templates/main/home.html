@@ -1,0 +1,60 @@
+{%extends 'main/base.html'%}
+{%block title%} Planteer {%endblock%}
+
+{%block content%} 
+<main>
+    <section class="search">
+        <div>
+            <div class="ms-2">
+            <h2>Planteer</h2>
+            <h3>Plant Database For Plants Lovers</h3>
+        </div>
+            <div>
+                <form action="{%url 'plants:search_view'%}" method="get">
+                    <div class="search_btn">
+                    <input class="custom-input" type="text" placeholder="Search for a planet" name="search" minlength="3" value="{{requset.GET.search}}">
+                    <button>Search</button>
+                </div>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+    <section class="home">
+        <div class="home-top">
+            <h3>Plants</h3>
+            <a class="plant-a" href="{%url 'plants:all_plants_view'%}"><h5>More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+              </svg></h5></a>
+        </div>
+        <p>Learn more about plants</p>
+        <div class="home-grid">
+            {%for plant in plants%}
+            <div class="card-x">
+                <div class="card-img mb-1">
+                <img src="{{plant.image.url}}" alt="plant img">
+            </div>
+                <div class="content mt-2">
+
+                    <a href="{% url 'plants:plant_detail_view' plant.id %}"> <h6>{{plant.name}}</h6></a>
+                    <p>{{plant.about}}</p>
+                <h6>{{plant.category}}</h6>
+                </div>
+            </div>
+            {%endfor%}
+
+        </div>
+    </section>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+{%endblock%}
