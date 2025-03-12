@@ -1,0 +1,39 @@
+{% extends 'app_main/base.html' %}
+{% block title %}home{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container py-5">
+        <section class="text-center mb-5">
+            <h1 class="fw-bold">Planteer</h1>
+            <p class="lead">Plant Database For Plant Lovers</p>
+            <div class="input-group w-50 mx-auto">
+                <input type="text" class="form-control" placeholder="Search...">
+                <a href="/plants/search/" class="btn btn-success">Search</a>
+            </div>
+        </section>
+        
+        <section>
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2>Plants</h2>
+                <a href="/plants/all/" class="btn btn-outline-secondary">More <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="row">
+                {% for plant in plants %}  
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm">
+                            <img src="{{ plant.image.url }}" class="card-img-top" alt="Plant img">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ plant.name }}</h5>
+                                <p class="card-text">{{ plant.about }}</p>
+                                <a href="{% url 'app_main:detail_view' plant.id %}" class="btn btn-primary">See More</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}                
+            </div>  
+        </section>
+    </div>
+</main>
+{% endblock %}

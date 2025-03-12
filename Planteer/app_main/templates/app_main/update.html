@@ -1,0 +1,42 @@
+{% extends 'app_main/base.html' %}
+{% block title %}update{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="mb-4">Update Plant</h2>
+            <form action="" method="POST" enctype="multipart/form-data" class="bg-light p-4 rounded shadow-sm">
+                {% csrf_token %}               
+                
+                <div class="mb-3">
+                    <input type="text" placeholder="Name" name="name" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <textarea name="about" class="form-control" placeholder="About" required></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <textarea name="used_for" class="form-control" placeholder="Used for" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <input type="file" name="image" class="form-control">
+                </div>
+                
+                <div class="mb-3">
+                    <input type="text" placeholder="Category" name="categoy" class="form-control" required>
+                </div>
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" id="is_edible" name="is_edible" class="form-check-input">
+                    <label for="is_edible" class="form-check-label">Is it edible?</label>
+                </div>
+                
+                <button type="submit" class="btn btn-success w-100">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

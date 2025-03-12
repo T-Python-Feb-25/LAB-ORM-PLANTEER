@@ -1,0 +1,12 @@
+
+{% extends 'app_main/base.html' %}
+{% block title %}update{% endblock %}
+
+{% block content %}
+<h2>Add Comment for {{ plant.name }}</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Add Comment</button>
+</form>
+{% endblock %}

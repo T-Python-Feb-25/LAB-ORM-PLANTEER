@@ -1,0 +1,32 @@
+{% extends 'app_main/base.html' %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <form method="GET" action="{% url 'app_main:search_view' %}" class="mb-4">
+        <div class="input-group w-50 mx-auto">
+            <input type="text" name="q" placeholder="Search for plants..." value="{{ query }}" class="form-control">
+            <button type="submit" class="btn btn-success">Search</button>
+        </div>
+    </form>
+
+    <section>
+        <h2 class="text-center mb-4">Search Results</h2>
+        <div class="row">
+            {% for plant in plants %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ plant.image.url }}" class="card-img-top" alt="{{ plant.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ plant.name }}</h5>
+                            <p class="card-text">{{ plant.about }}</p>
+                            <a href="{% url 'app_main:detail_view' plant.id %}" class="btn btn-primary">See Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
