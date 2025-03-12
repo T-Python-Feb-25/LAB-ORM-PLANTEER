@@ -1,0 +1,55 @@
+{% extends 'app_main/base.html' %}
+
+{% block title %}Add New Plant{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">Add New Plant</h2>
+            <div class="card shadow-sm p-4">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Plant Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter plant name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">About</label>
+                        <textarea name="about" class="form-control" placeholder="Describe the plant" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Used For</label>
+                        <textarea name="used_for" class="form-control" placeholder="How is this plant used?" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Upload Image</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" name="category" required>
+                            <option value="" disabled selected>Select category</option>
+                            <option value="Flower">Flower</option>
+                            <option value="Vegetable">Vegetable</option>
+                            <option value="Fruit">Fruit</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="is_edible" name="is_edible">
+                        <label class="form-check-label" for="is_edible">Is it edible?</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

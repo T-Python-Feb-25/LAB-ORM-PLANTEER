@@ -1,0 +1,55 @@
+
+{% extends 'app_main/base.html' %}
+
+{% block title %}All Plants{% endblock %}
+
+{% block content %}
+<h2>All Plants</h2>
+
+
+<form method="GET" action="{% url 'app_main:plant_view' %}" class="mb-4">
+    <div class="row">
+       
+        <div class="col-md-4">
+            <select name="category" class="form-select">
+                <option value="">All Categories</option>
+                {% for category in categories %}
+                    <option value="{{ category.id }}" {% if category.id|stringformat:"s" == selected_category %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        
+        <div class="col-md-4">
+            <div class="form-check">
+                <input type="checkbox" name="is_edible" id="is_edible" class="form-check-input" {% if is_edible_filter %}checked{% endif %}>
+                <label for="is_edible" class="form-check-label">Edible Plants Only</label>
+            </div>
+        </div>
+
+        
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-success">Filter</button>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    {% for plant in plants %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <img src="{{ plant.image.url }}" class="card-img-top" alt="Plant img">
+                <div class="card-body">
+                    <h5 class="card-title">{{ plant.name }}</h5>
+                    <p class="card-text">{{ plant.about }}</p>
+                    <a href="{% url 'app_main:detail_view' plant.id %}" class="btn btn-primary">See More</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

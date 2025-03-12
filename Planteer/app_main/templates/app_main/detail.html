@@ -1,0 +1,59 @@
+{% extends 'app_main/base.html' %}
+
+{% block title %}{{ plant.name }} Details{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- تفاصيل النبات -->
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ plant.image.url }}" class="img-fluid rounded shadow-sm" alt="{{ plant.name }}">
+        </div>
+        <div class="col-md-6">
+            <h1 class="fw-bold">{{ plant.name }}</h1>
+            <p class="text-muted">{{ plant.about }}</p>
+            <hr>
+            <h5><strong>Used For:</strong></h5>
+            <p>{{ plant.used_for }}</p>
+            <h5><strong>Category:</strong></h5>
+            <p>{{ plant.category }}</p>
+            <h5><strong>Edible:</strong> {{ plant.is_edible|yesno:"Yes,No" }}</h5>
+        </div>
+    </div>
+
+   
+    <section class="mt-5">
+        <h2 class="text-center mb-4">Related Plants</h2>
+        <div class="row">
+            {% for related_plant in related_plants %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        <img src="{{ related_plant.image.url }}" class="card-img-top" alt="{{ related_plant.name }}">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ related_plant.name }}</h5>
+                            <a href="{% url 'app_main:detail_view' related_plant.id %}" class="btn btn-primary">See Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="text-center text-muted">No related plants found.</p>
+            {% endfor %}
+        </div>
+    </section>
+    <h2>Comments</h2>
+<form method="POST" action="{% url 'add_comment' plant.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+</form>
+
+<ul>
+    {% for comment in plant.comments.all %}
+        <li>
+            <strong>{{ comment.full_name }} {{ comment.last_name }}</strong> ({{ comment.created_at }}):
+            <p>{{ comment.massage }}</p>
+        </li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}
