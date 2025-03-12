@@ -1,0 +1,100 @@
+/* تنسيق خلفية مربع البحث */
+.search-container {
+    background: url('/static/images/background.jpg') no-repeat center center;
+    background-size: cover; /* تغطية كاملة للصورة */
+    padding: 40px;
+    border-radius: 15px; /* حواف مستديرة */
+    text-align: center;
+    width: 60%;
+    margin: 50px auto; /* توسيط العنصر */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل لإعطاء تأثير جميل */
+    color: white; /* جعل النص أبيض ليكون واضحاً */
+}
+
+
+
+
+/* تنسيق العنوان */
+.search-container h1 {
+    font-size: 2.5rem;
+    color: #080808; /* لون أخضر داكن */
+}
+
+/* تنسيق النص */
+.search-container p {
+    font-size: 1.2rem;
+    color: #070707;
+}
+
+/* تنسيق حقل البحث */
+.search-container input {
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* تنسيق زر البحث */
+.search-container button {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+
+
+
+
+/* استايلات عامة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* تخصيص شريط التنقل */
+.navbar {
+    background-color: #0f0f0f !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: white !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #e9c46a !important;
+}
+
+/* تخصيص العناوين */
+h1, h2, h3 {
+    color: #264653;
+}
+
+/* تخصيص الأزرار */
+.btn-primary {
+    background-color: #e76f51;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #d64933;
+}
+
+/* تخصيص بطاقات النباتات */
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* تخصيص الفوتر */
+footer {
+    background-color: #264653;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
