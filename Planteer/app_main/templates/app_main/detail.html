@@ -40,20 +40,4 @@
             {% endfor %}
         </div>
     </section>
-    <h2>Comments</h2>
-<form method="POST" action="{% url 'add_comment' plant.id %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn">Add Comment</button>
-</form>
-
-<ul>
-    {% for comment in plant.comments.all %}
-        <li>
-            <strong>{{ comment.full_name }} {{ comment.last_name }}</strong> ({{ comment.created_at }}):
-            <p>{{ comment.massage }}</p>
-        </li>
-    {% endfor %}
-</ul>
-</div>
-{% endblock %}
+    
