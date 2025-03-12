@@ -1,0 +1,128 @@
+/*base page*/
+.navbar ul{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 50px;
+    background-color: black;
+}
+.navbar a{
+    text-decoration: none;
+    color: black;
+}
+.navbar li{
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+}
+.navbar li:first-child{
+    margin-right: auto;
+}
+
+.btn{
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+}
+/*base page*/
+.footer_content .social_icons ul{
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 50px;
+    color: gray;
+
+}
+.Pages_list{
+    width: 100%;
+    margin-right: auto;
+}
+.Pages_list td,th{
+    text-align: center;
+    padding: 10px;
+
+}
+.home_content{
+    background-image: url('images/homephoto.jpj');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    color: black;
+    border-radius: 10vh;
+}
+/*contact page*/
+.contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+}
+.contanor{
+    width: 50%;
+    padding: 20px;
+}
+.contact_form{
+    display: flex;
+    flex-direction: column;
+}
+.form_data label{
+    font-weight: bold;
+    margin: 10px;
+}
+.form_data input , textarea{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+.form_data textarea{
+    height: 100px;
+}
+.contact .btn{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.contact .btn:hover{
+    background-color: blueviolet;
+}
+.photo {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+}
+.photo img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+@media (max-width:768px) {
+    .contact{flex-direction: column;
+    text-align: center;
+    }
+    .contanor , .photo{
+        
+        width: 100%;   
+    }
+    .photo img{
+        width: 80%;
+    }
+    
+}
+
+/**/

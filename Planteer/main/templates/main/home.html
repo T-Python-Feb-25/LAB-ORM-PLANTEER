@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+{% block title%} home {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main class="home_content">
+    <h1>Planteer</h1><br>
+    <h2>Plant Database For Plants Lovers</h2>
+    <form><label for="search"></label></form>
+    <input type="text" id="search" value="Search For Plant...">  
+    <button class="btn"><a href="{% url 'plants:search_plants'%}">search</a></button> 
+</main>
+<section>
+    <button class="btn"><a href="{% url 'plants:all_plants'%}">More→</a></button> 
+</section>
+{% endblock %}

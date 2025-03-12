@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% block title%} contact us{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<section class="contact">
+    <main class="contanor">
+        <h1 class="title"><strong>Contact us</strong></h1>
+        <p class="welcome">We welcome your questions and suggestions </p>
+        <form class="contact_form">
+            <div class="form_data">
+                <label class="first" for="firat_name">Firat name</label>
+                <input type="text" id="firat_name" placeholder="Enter your first name..."> 
+            </div> 
+            <div class="form_data">
+                <label class="last" for="last_name"> Last name</label>
+                <input type="text" id="last_name" placeholder="Enter your last name...">
+            </div>
+            <div class="form_data">
+                <label class="email" for="email"> Email address</label>
+                <input type="text" id="email" placeholder="Enter your email...">
+            </div> 
+            <div class="form_data">
+                <label class="message" for="message"> your message</label>
+                <textarea type="text" id="message" placeholder="Enter your question or message..."></textarea>
+            </div>
+        </form>
+        <form action="submit" method="POST">
+            <button class="btn" type="submit">Submit</button>
+        </form>
+        <div class="photo">
+            <img src="{% static 'images/homephoto.jpg' %}" alt="contact us photo">
+        </div>
+    </main>
+</section>
+
+{% endblock %}

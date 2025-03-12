@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+{% block title%} Add plant {% endblock %}
+{& block import &} imp {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <h1><strong> Add a plant </strong></h1>
+        <div class="new_p">
+            <form action="{% url plants:add_plants %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" placeholder="Enter the plant's name..." name="name" class="form_control"/> 
+                <textarea placeholder="Enter informations about the plant  ..." name="about" class="form_control"></textarea> 
+                <input type="text" placeholder="used for..." name="used_for" class="form_control"/>
+                <input type="file" name="image"class="form_control"/>
+                <input type="text" placeholder="category..." name="categoryr" class="form_control"/>
+                <select class="form_select" name="is_edible" class="form_control">
+                    <option selected>is edible"</option>
+                    <option value="True"></option>
+                    <option value="False"></option>
+                </select>
+                <input type="date" name="created_at" class="form_control"/>
+                <input type="submit" value="add plant" class="btn btn_primary">
+
+
+            
+            </form>
+        </div>
+
+</main>
+
+{% endblock %}

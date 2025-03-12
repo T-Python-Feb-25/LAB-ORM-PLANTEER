@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title%} {% endblock %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="/static/css_files/stayle.css">
+    </head>
+    <body>
+    <!--الشريط الاول الاساسي في كل الصفحات-->
+        <header></header>
+            <nav class="navbar">
+                
+                <ul>
+                    <li>PLANTEER</li>
+                    <li><a href="{% url 'plants:all_plants' %}">All plants</a></li>
+                    <li><a href="{% url 'main:contact_us' %}">contact us</a></li>
+                    <li> 
+                        <button class="btn"><a href="{% url 'plants:add_plants'%}">add plants</a></button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            {% block content %}
+
+            {% endblock %}
+        </main>
+        <footer class="footer_content">
+            <hr>
+            <ul class="socail_icons">
+                <li>PLANTEER</li>
+                <li><i class="fab fa-facebook-f"></i></li>
+                <li><i class="fab fa-twitter"></i></li>
+                <li><i class="fab fa-youtube"></i></li>
+                <li><i class="fab fa-linkedin-in"></i></li>
+            </ul>
+            
+                <table class="Pages_list">
+                    <tr>
+                        <th>Core Pages</th>
+                        <th>Plant Management Pages</th>
+                        <th>Contact-related Pages</th>
+                    </tr>
+                    <tr>
+                        <td><a href="{% url 'main:home'%}">home</a></td>
+                        <td><a href="{% url 'plants:add_plants'%}">add plants</a></td>
+                        <td><a href="{% url 'main:contact_us'&}"></a>contact us</td>
+                    </tr>
+                    <tr>
+                        <td><a href="{% url 'plants:all_plants'%}">all plants</a></td>
+                        <td><a href="{% url 'plants:update_plant' plant.id %}"></a>update plant</td>
+                        <td><a href="{% url 'main:contact_us_messages'%}">message us</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{% url 'plants:plants_detail' plant.id %}">plants detail</a></td>
+                        <td><a href="{% url 'plants:delete_plants' plant.id %}">delete_plants</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="{% url 'plants:search_plants'%}">search plants</a></td>
+                    </tr>
+                </table>
+
+            </div>
+            
+
+        </footer>
+    </body>
+</html>

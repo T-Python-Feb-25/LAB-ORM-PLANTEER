@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block title%} Add plant {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <h1><strong> update {{plant.name}}  </strong></h1>
+        <div class="new_p">
+            <form action="{% url plants:update_plant plant.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" placeholder="Enter the plant's name..." name="name" class="form_control" value="{{plant.name}}"/> 
+                <textarea placeholder="Enter informations about the plant  ..." name="about" class="form_control" value="{{plant.about}}"></textarea> 
+                <input type="text" placeholder="used for..." name="used_for" class="form_control" value="{{plant.used_for}}"/>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{plant.image.url}}" class="w-100"/>
+                    </div>
+                    <div clas="col">
+                        <input type="file" name="image" class="form_control"/>
+                    </div>
+                </div>
+                <input type="text" placeholder="category..." name="category" class="form_control" value="{{plant.category}}"/>
+                <select class="form_select" name="is_edible" class="form_control" class="{{plant.is_edible}}">
+                    <option >is edible"</option>
+                    <option value="True"{% if plant.is edible=='True' %}is edible>yes</option>
+                    <option value="False"{% if plant.is edible=='False' %}is edible>no</option>
+                </select>
+                <input type="date" name="created_at" class="form_control" value="{{plant.created_at.isoformat}}"/>
+                <input type="submit" value="update plant" class="btn btn_primary">
+
+
+            
+            </form>
+        </div>
+
+</main>
+
+{% endblock %}
