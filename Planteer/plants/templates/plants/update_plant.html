@@ -7,7 +7,7 @@
 <main>
     <h1><strong> update {{plant.name}}  </strong></h1>
         <div class="new_p">
-            <form action="{% url plants:update_plant plant.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'plants:update_plant' plant.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="text" placeholder="Enter the plant's name..." name="name" class="form_control" value="{{plant.name}}"/> 
                 <textarea placeholder="Enter informations about the plant  ..." name="about" class="form_control" value="{{plant.about}}"></textarea> 

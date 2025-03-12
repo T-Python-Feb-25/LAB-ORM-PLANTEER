@@ -23,7 +23,7 @@ def add_plants(request:HttpRequest):
 
     return render(request ,'plants/add_plants.html')
 
-def update_plant(request:HttpRequest ,plant_id):
+def update_plant(request:HttpRequest ,plant_id:int):
     plants=plant.objects.get(pk=plant_id)
     if request.method=="POST":
         plants.name=request.POST["name"]
