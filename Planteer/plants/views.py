@@ -35,7 +35,9 @@ def plant_detail_view(request: HttpRequest, plant_id):
     plant_obj = Plant.objects.get(pk=plant_id)
     comments = []
     comments = Comment.objects.filter(plant=plant_obj)
-    return render(request, 'plants/plant_detail.html', {'plant': plant_obj, 'comments': comments})
+    
+    related_plants = Plant.objects.filter(category=plant_obj.category)[:3]
+    return render(request, 'plants/plant_detail.html', {'plant': plant_obj, 'comments': comments,'related_plants':related_plants})
 
 def plant_update_view(request: HttpRequest, plant_id):
     plant = Plant.objects.get(pk=plant_id)

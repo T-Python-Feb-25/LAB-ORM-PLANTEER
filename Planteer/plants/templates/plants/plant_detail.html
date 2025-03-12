@@ -39,7 +39,27 @@
         </div>
     </div>
 </div>
-
+<hr>
+<div class="container">
+    <h3>Releated Plants</h3>
+    <div class="row shadow"> 
+        {% for related_plant in related_plants %}
+            {%if not plant.id == related_plant.id %}
+                <div class="col">
+                    <div class="ratio ratio-1x1" style="width: 200px;">
+                        <img src="{{ related_plant.image.url }}" alt="{{ related_plant.name }}" class="card-img-top object-fit-cover rounded">
+                        </div>
+                        <a href="{%url 'plants:plant_detail_view' related_plant.id %}" class="text-decoration-none text-black">
+                        <h5 class="ms-3 mb-1">{{ related_plant.name }}</h5>
+                        </a>
+                    <p class="ms-3 mb-1">{{ related_plant.category }}</p>
+                </div>
+            {%endif%}
+        {% empty %}
+            <p>No plants found.</p> 
+        {% endfor %}
+    </div>
+</div>
 <hr>
     <h1>Comments </h1>
     <div class="d-flex flex-column gap-3 p-3 shadow">
