@@ -8,8 +8,10 @@
     <h1>Planteer</h1><br>
     <h2>Plant Database For Plants Lovers</h2>
     <form><label for="search"></label></form>
-    <input type="text" id="search" value="Search For Plant...">  
-    <button class="btn"><a href="{% url 'plants:search_plants'%}">search</a></button> 
+    <input type="text" id="search" value="Search For Plant..."> 
+    <form role="search" method="get" action="{% url 'plants:search_plants'%}">
+        <input  class="form_control"type="search" placeholder="search" aria-label="search" name="search" value="{{request.GET.search}}" required minlength="3">
+    </form>
 </main>
 <section>
     <button class="btn"><a href="{% url 'plants:all_plants'%}">More→</a></button> 

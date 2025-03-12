@@ -42,7 +42,11 @@ def delete_plants(request:HttpRequest ,plant_id):
     plants=plant.objects.get(pk=plant_id)
     plants.delete()
     return redirect('main:home')
-    return render(request , 'plants/delete_plants.html')
 
 def search_plants(request:HttpRequest):
-    return render(request , 'plants/search_plants.html')
+    if" search" in request.GET and len(request.GET["search"])>=3:
+        plants= plant.objects.filter(name__contains=request.GET["search"])
+    else :
+        plants=[]
+    
+    return render(request , 'plants/search_plants.html',{"plant":plants})
