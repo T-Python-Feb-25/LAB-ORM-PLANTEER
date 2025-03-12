@@ -1,0 +1,20 @@
+
+
+.search-bar {
+    max-width: 500px;
+    margin: auto;
+}
+.plant-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.nav-link {
+    color: black !important; /* Forces the color to be black */
+    text-decoration: none; /* Removes underline if needed */
+}
+.nav-link.active {
+    color: white !important; 
+    background-color: black !important; /* Change text color to black */
+}
+

@@ -1,0 +1,52 @@
+{% extends "main/base.html" %}
+
+{%block title%} Plantter - Home{%endblock%}
+
+
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>All Plants</h1>
+        <form method="get" action="" class="d-flex">
+          <select name="category" class="form-select me-2" onchange="this.form.submit()">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+              <option value="{{ category }}" {% if selected_category == category %}selected{% endif %}>{{ category }}</option>
+            {% endfor %}
+          </select>
+        </form>
+    </div>
+    <div class="row">
+        {% for plant in plants %}
+            {% if forloop.counter0|divisibleby:3 %}
+                {% if not forloop.first %}
+                    </div><div class="row shadow my-3">
+                {% else %}
+                    <div class="row shadow my-3">
+                {% endif %}
+            {% endif %}
+            
+            <div class="col-md-4 mb-4">
+                <div class="d-flex">
+                    <div class="ratio ratio-1x1" style="width: 100px;">
+                        <img src="{{ plant.image.url }}" alt="{{ plant.name }}" class="object-fit-cover rounded">
+                    </div>
+                    <div class="ms-3">
+                        <a href="{%url 'plants:plant_detail_view' plant.id %}" class="text-decoration-none text-black">
+                        <h5 class="mb-1">{{ plant.name }}</h5>
+                        </a>
+                        <p class="mb-1">{{ plant.category }}</p>
+                    </div>
+                </div>
+            </div>
+            
+            {% if forloop.last %}
+                </div>
+            {% endif %}
+        {% empty %}
+            <p>No plants found.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
