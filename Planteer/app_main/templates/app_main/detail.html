@@ -44,7 +44,7 @@
 <form method="POST" action="{% url 'add_comment' plant.id %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Add Comment</button>
+    <button type="submit" class="btn">Add Comment</button>
 </form>
 
 <ul>
