@@ -70,7 +70,12 @@ a{
     gap: 20rem;
     align-items: center;
 }
-
+.line {
+    border: 0;
+    height: 1px; 
+    background-color: #000; 
+    margin-top: 1rem;
+}
 .site{
     display: flex;
     flex-direction: column;
@@ -102,19 +107,29 @@ a{
     gap: 3rem;
     justify-content: center;
     align-items: center;
-    padding: 7rem 10rem;
+    padding: 18rem;
     border-radius: 10px;
-    background-color: antiquewhite;
-    background-image: url('static/image/background.jpeg');
-    background-size: cover;
+    background-image: url('/static/image/background.jpeg');
+    background-size: contain;
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
 
+
+}
+.text,strong{
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: Arial, sans-serif;
+    font-size: 4rem;   
 }
 .text{
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+
 
 }
 .search{
