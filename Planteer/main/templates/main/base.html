@@ -10,17 +10,21 @@
     </head>
     <body>
     <!--الشريط الاول الاساسي في كل الصفحات-->
-        <header></header>
+        <header>
             <nav class="navbar">
-                
-                <ul>
-                    <li>PLANTEER</li>
-                    <li><a href="{% url 'plants:all_plants' %}">All plants</a></li>
-                    <li><a href="{% url 'main:contact_us' %}">contact us</a></li>
-                    <li> 
-                        <button class="btn"><a href="{% url 'plants:add_plants'%}">add plants</a></button>
-                    </li>
-                </ul>
+                <div class="nav-left">
+                    <span>PLANTEER</span>
+                </div>
+
+                <div class="nav-right">
+                    <ul>
+                        <li><a href="{% url 'plants:all_plants' %}">All plants</a></li>
+                        <li><a href="{% url 'main:contact_us' %}">contact us</a></li>
+                        <li> 
+                            <button class="btn"><a href="{% url 'plants:add_plants'%}">Add plants</a></button>
+                        </li>
+                    </ul>
+                </div>
             </nav>
         </header>
         <main>
@@ -30,14 +34,16 @@
         </main>
         <footer class="footer_content">
             <hr>
-            <ul class="socail_icons">
-                <li>PLANTEER</li>
-                <li><i class="fab fa-facebook-f"></i></li>
-                <li><i class="fab fa-twitter"></i></li>
-                <li><i class="fab fa-youtube"></i></li>
-                <li><i class="fab fa-linkedin-in"></i></li>
-            </ul>
-            
+            <div class="footer-top">
+                <ul class="socail_icons">
+                    <li>PLANTEER</li>
+                    <li><i class="fab fa-facebook-f"></i></li>
+                    <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-youtube"></i></li>
+                    <li><i class="fab fa-linkedin-in"></i></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
                 <table class="Pages_list">
                     <tr>
                         <th>Core Pages</th>
@@ -56,16 +62,13 @@
                     </tr>
                     <tr>
                         <td>plants detail</td>
-                        <td>delete_plants</a></td>
+                        <td>delete plants</a></td>
                     </tr>
                     <tr>
                         <td><a href="{% url 'plants:search_plants' %}">search plants</a></td>
                     </tr>
                 </table>
-
             </div>
-            
-
         </footer>
     </body>
 </html>
