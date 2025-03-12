@@ -40,6 +40,8 @@ def update_plant(request:HttpRequest ,plant_id):
 
 def delete_plants(request:HttpRequest ,plant_id):
     plants=plant.objects.get(pk=plant_id)
+    plants.delete()
+    return redirect('main:home')
     return render(request , 'plants/delete_plants.html')
 
 def search_plants(request:HttpRequest):

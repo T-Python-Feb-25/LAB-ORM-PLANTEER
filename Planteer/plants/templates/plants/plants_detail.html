@@ -8,15 +8,15 @@
     <h1>{{plant.title}}</h1>
     <div class="details">
         <img src="{{plant.image.url}}">
-        <a href="{% url plants:update_plant plant.id %}"class="btn"></a>
+        <a href="{% url plants:update_plant plant.id %}"class="btn-primary">update</a>
+        <a href="{% url plants:delete_plants plant.id %}"class="btn-danger">delete</a>
         <h3>{{plant.name}}</h3>
         <p>{{plant.category}}</p>
         <p>{{plant.about}}</p>
         <p>{{plant.is_edible}}</p>
         <p>{{plant.used_for}}</p>
-
-        
     </div>
+    
 
 </main>
 
