@@ -8,7 +8,7 @@
     <h1 class="text-center">Planteer</h1>
     <p class="text-center">Plant Database for Plant Lovers</p>
 
-    <!-- 🔍 محرك البحث -->
+    
     <form method="GET" action="{% url 'app_planteer:search_plants' %}" class="d-flex justify-content-center">
         <input type="text" name="q" class="form-control w-50" placeholder="Search for a plant..." required>
         <button type="submit" class="btn btn-success ms-2">Search</button>
@@ -26,7 +26,7 @@
 </div>
 
 
-<!-- ✅ قسم عرض النباتات العشوائية بتنسيق Grid -->
+
 {% if random_plants %}
     <h3 class="mt-4">Recommended Plants</h3>
     <div class="row">

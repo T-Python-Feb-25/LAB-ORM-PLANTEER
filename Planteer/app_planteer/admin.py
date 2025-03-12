@@ -7,5 +7,5 @@ from .models import ContactMessage
 
 
 admin.site.register(Plant)
-admin.site.register(Category)  #  تسجيل الفئات لإدارتها من لوحة التحكم
+admin.site.register(Category)  
 admin.site.register(ContactMessage)

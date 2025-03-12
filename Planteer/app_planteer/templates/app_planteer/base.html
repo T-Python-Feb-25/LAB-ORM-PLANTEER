@@ -24,7 +24,7 @@
 
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">  <!-- ✅ إضافة ms-auto هنا لمحاذاة الروابط إلى اليمين -->
+            <ul class="navbar-nav ms-auto">  
                 <li class="nav-item"><a class="nav-link" href="{% url 'app_planteer:all_plants' %}">All Plants</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'app_planteer:search_plants' %}">Search</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'app_planteer:contact' %}">Contact</a></li>
@@ -40,7 +40,7 @@
         {% block content %}{% endblock %}
     </div>
 
-    <!-- ✅ Footer -->
+  
     <footer class="bg-dark text-white text-center py-3 mt-auto">
         <div class="container">
             <p class="mb-1">Follow us on social media</p>
@@ -59,7 +59,7 @@
         </div>
     </footer>
 
-    <!-- ✅ FontAwesome for icons -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

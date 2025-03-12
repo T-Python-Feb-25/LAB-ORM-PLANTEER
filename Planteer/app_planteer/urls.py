@@ -6,8 +6,8 @@ urlpatterns = [
     path('plants/all/', views.all_plants, name='all_plants'),
     path('plants/<plant_id>/detail/', views.plant_detail, name='plant_detail'),
 
-    path('plants/<int:plant_id>/edit/', views.plant_edit, name='plant_edit'),  # ✏️ تعديل النبتة
-    path('plants/<int:plant_id>/delete/', views.plant_delete, name='plant_delete'),  # ❌ حذف النبتة
+    path('plants/<int:plant_id>/edit/', views.plant_edit, name='plant_edit'),  
+    path('plants/<int:plant_id>/delete/', views.plant_delete, name='plant_delete'),  
 
 
     path('plants/new/', views.add_plant, name='add_plant'),

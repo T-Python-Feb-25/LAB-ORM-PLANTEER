@@ -12,7 +12,7 @@
                 <img src="{{ plant.poster.url }}" class="w-100 rounded" alt="{{ plant.name }} Image"/>
                 <p class="fs-5">{{ plant.description }}</p>
 
-                <!-- 🛠️ أزرار التعديل والحذف -->
+                
                 <div class="d-flex gap-2">
                     <a href="{% url 'app_planteer:plant_edit' plant.id %}" class="btn btn-warning">✏️ Edit</a>
                     
@@ -23,7 +23,7 @@
                     </form>
                 </div>
 
-                <!-- 📝 قائمة التعليقات -->
+               
                 <h3 class="mt-4">Comments</h3>
                 <ul class="list-group">
                     {% for comment in comments %}
@@ -37,7 +37,7 @@
                     {% endfor %}
                 </ul>
 
-                <!-- 📝 نموذج إضافة تعليق جديد -->
+               
                 <h3 class="mt-4">Add a New Comment</h3>
                 <form method="post" class="border p-3 rounded shadow-sm">
                     {% csrf_token %}
@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <!-- ✅ نقل النباتات المتشابهة إلى أسفل الصفحة -->
+   
     {% if related_plants %}
         <div class="mt-5">
             <h3 class="text-center">Similar Plants</h3>
