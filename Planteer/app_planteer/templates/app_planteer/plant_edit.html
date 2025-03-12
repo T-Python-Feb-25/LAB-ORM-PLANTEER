@@ -1,0 +1,14 @@
+{% extends "app_planteer/base.html" %}
+{% block title %} Edit Plant {% endblock %}
+
+{% block content %}
+<h2>Edit {{ plant.name }}</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{% url 'app_planteer:plant_detail' plant.id %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

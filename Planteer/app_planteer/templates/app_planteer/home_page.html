@@ -15,44 +15,33 @@
     </form>
 </div>
 
-<div class="plants_explor">
-    <h2 class="txt-left">Plants</h2>
-    <p class="txt-left">Learn more about plants</p>
-    <li class="nav-item-right"><a class="nav-link" href="{% url 'app_planteer:all_plants' %}">More</a></li>
+
+
+<div class="plants_explor bg-light py-4 px-3 rounded shadow d-flex justify-content-between align-items-center w-100">
+    <div class="text-start">
+        <h2 class="fw-bold">🌿 Plants</h2>
+        <p class="text-muted mb-0">Learn more about plants.</p>
+    </div>
+    <a href="{% url 'app_planteer:all_plants' %}" class="btn btn-success px-4 py-2">More</a>
 </div>
 
-<div class="row">
-    <div class="col-12 col-md-4">
 
-
-        <div class="card">
-            <img src="{% static 'images/kain.jpg' %}" class="card-img-top" alt="Plant">
-            <div class="card-body">
-                <h5 class="card-title">Sidr</h5>
-               
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-12 col-md-4">
-        <div class="card">
-            <img src="{% static 'images/watermelon.jpg' %}" class="card-img-top" alt="Plant">
-            <div class="card-body">
-                <h5 class="card-title">Watermelon</h5>
-               
-            </div>
-        </div>
-     </div> 
-       
-
+<!-- ✅ قسم عرض النباتات العشوائية بتنسيق Grid -->
+{% if random_plants %}
+    <h3 class="mt-4">Recommended Plants</h3>
+    <div class="row">
+        {% for plant in random_plants %}
             <div class="col-12 col-md-4">
-                <div class="card">
-                    <img src="{% static 'images/vegetable.jpg' %}" class="card-img-top" alt="Plant">
-                    <div class="card-body">
-                        <h5 class="card-title">Vegetables</h5>
-                      
-                    </div>    
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ plant.poster.url }}" class="card-img-top" alt="{{ plant.name }}">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ plant.name }}</h5>
+                        <a href="{% url 'app_planteer:plant_detail' plant.id %}" class="btn btn-sm btn-primary">View</a>
+                    </div>
                 </div>
             </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 {% endblock %}
