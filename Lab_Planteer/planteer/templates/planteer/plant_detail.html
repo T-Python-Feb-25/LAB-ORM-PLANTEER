@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+{%block title%} Add plant page {%endblock%}
+{% block content %}
+ <h1>{{plant.title}}</h1>
+
+
+ <div class="row">
+
+    <div class="col">
+        <div class="d-flex flex-column gap-2">
+            <div class="d-flex justify-content-between">
+                <h6>{{plant.published_at}}</h6>
+            </div>
+            <div class="d-flex flex-row gap-2 align-items-center">
+                <img src="{{ plant.plant_image.url }}" class="w-50" /> 
+                <p >{{ plant.content }}</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+{%endblock%} 

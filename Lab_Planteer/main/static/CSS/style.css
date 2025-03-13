@@ -37,6 +37,11 @@
     padding: 2rem 2rem;
 }
 
+.head_nav,a{
+    color:black,
+
+}
+
 
 
 .right{
@@ -107,9 +112,9 @@ a{
     gap: 3rem;
     justify-content: center;
     align-items: center;
-    padding: 18rem;
+    padding: 7rem 15rem;
     border-radius: 10px;
-    background-image: url('/static/image/background.jpeg');
+    background-image: url('/static/image/plant_background.jpeg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

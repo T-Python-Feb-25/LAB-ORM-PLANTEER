@@ -1,20 +1,6 @@
 {% extends "main/base.html" %}
 {%block title%} Home page {%endblock%}
-{% block topic %} Home {%endblock%}
 {% block content %}
-
-<div class="basic">
-    <div class="text">
-        <strong> Planteer</strong> 
-        <p> Plant Database For Plants lovers </p>
-    </div>
-
-    <div class="search">
-        <input type="search" placeholder="Search..." class="search-input">
-        <a href="" class="btn">Search</a>
-    </div>
-
-</div>
 
 <h2> All Plant</h2>
 
@@ -25,8 +11,8 @@
           <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow">
               <img src="{{plant.plant_image.url}}" alt="plant image">
               <h3>{{plant.title}}</h3>
+              <p>{{plant.content}}</p>
               <h5>Published at: {{plant.published_at}}</h5>
-              <h6>{{game.release_date}}</h6>
           </div>
       </div>
     {% endfor %}
