@@ -1,0 +1,207 @@
+:root { 
+    --main-color: #10401c; 
+}
+.btn-dark{
+    color: white;
+    background-color: black;
+    font-size: 12px;
+    padding: 9px 20px;
+}
+.btn-danger{
+    font-size: 12px;
+    padding: 9px 20px;
+}
+.btn-secondary{
+    font-size: 12px;
+    padding: 9px 20px;
+}
+
+.rubik-bubbles-regular {
+    font-family: "Rubik Bubbles", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+    
+.navbar-brand{
+    font-family: "Rubik Bubbles", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+}
+a i{
+    color: #969090;
+}
+h1{
+    font-size: 86px;
+}
+h2{
+    font-size: 48px;
+    text-align: center;
+}
+#plant-search:focus{
+    box-shadow: 0 0 5px 2px rgba(38, 115, 38, 0.5); 
+    border-color: #10401c; 
+}
+
+.input-style{
+    box-shadow: none; 
+    border-color: #10401c; 
+}
+.input-style:focus{
+    box-shadow: 0 0 2px 2px rgba(38, 115, 38, 0.5); 
+    border-color: #10401c; 
+}
+
+
+.text-bold{
+    font-weight: bold;
+
+}
+.search-section{
+    background-image:url("/static/images/plant-bg-9.jpg");
+    background-repeat: no-repeat;
+    height: 60vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment:local;
+    
+
+}
+
+
+.plant-image{
+    border-radius: 15px;
+    height: 250px;
+    width: 350px;
+
+}
+.plant-btn{
+    text-decoration: none;
+    color: #10401c;
+
+
+}
+.plant-btn:hover{
+    text-decoration: none;
+    color: #38b457;
+
+}
+.update-image {
+    max-width: 300px ;
+    height: 50vh;
+    border-radius: 25px;
+    object-fit:fill;
+}
+.contact-image {
+    max-width: 400px ;
+    height: 50vh;
+    border-radius: 25px;
+    object-fit:fill;
+}
+.details-image {
+    width: 50%;
+    height: 80vh;
+    border-radius: 25px;
+    object-fit:fill;
+}
+.details-info{
+    width: inherit;
+}
+.card{
+    height: 250px;
+    width: 400px;
+}
+.card h6{
+    font-size: 12px;
+}
+.card h4{
+    color: #10401c;
+}
+
+
+@media (min-width:0.98px) and (max-width: 575.98px){
+    .details-image {
+        min-width: 100%;
+        height: 100vw;
+
+    }
+    .update-image {
+        min-width: 150px;
+        width: 100% ;
+        height: 30vh;
+        border-radius: 25px;
+        object-fit:fill;
+        margin-bottom: 30px;
+    }
+    .card{
+        height: 300px;
+        width: 350px;
+    }
+    .contact-image {
+        max-width: 500px ;
+        width: 100%;
+        height: 25vh;
+        border-radius: 25px;
+        object-fit:fill;
+    }
+
+}
+
+
+
+@media (min-width: 575.98px) and (max-width: 767.98px){
+    .plant-image {
+        width: 500px; 
+        height: 300px; 
+    }
+    .cutom-card{
+        justify-content: center;
+    }
+    .details-image {
+        min-width: 100%;
+
+    }
+    .update-image {
+        max-width: 600px;
+        width: 100% ;
+        height: 30vh;
+        border-radius: 25px;
+        object-fit:fill;
+        margin-bottom: 30px;
+    }
+    .contact-image {
+        max-width: 700px ;
+        width: 100%;
+        height: 25vh;
+        border-radius: 25px;
+        object-fit:fill;
+    }
+
+ }
+@media (min-width: 768px) and (max-width: 890.98px){
+    .plant-image {
+        width: 290px; 
+        height: 200px; 
+        
+    }
+    .update-image {
+        max-width: 600px;
+        width: 100% ;
+        height: 30vh;
+        border-radius: 25px;
+        object-fit:fill;
+        margin-bottom: 30px;
+    }
+
+ }
+ @media (min-width: 768px) {
+    .contact-image {
+        max-width: 500px ;
+        width: 500px;
+        height: 50vh;
+        border-radius: 25px;
+        object-fit:cover;
+    }
+    
+ }
