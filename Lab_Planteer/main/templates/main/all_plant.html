@@ -10,7 +10,7 @@
       <div class="col">
           <div class="d-flex flex-column justify-content-start align-items-start h-100 p-4 shadow">
               <img src="{{plant.plant_image.url}}" alt="plant image">
-              <h3>{{plant.title}}</h3>
+              <a href="{% url 'planteer:plant_detail_view' plant.id %}"> <h3>{{plant.title}}</h3> </a>
               <p>{{plant.content}}</p>
               <h5>Published at: {{plant.published_at}}</h5>
           </div>

@@ -15,12 +15,35 @@
                 <img src="{{ plant.plant_image.url }}" class="w-50" /> 
                 <p >{{ plant.content }}</p>
             </div>
+            <div class="d-flex justify-content-end gap-2">
+                <a href="{% url 'planteer:plant_update_view' plant.id %}" class="btn btn-primary">update</a>   
+                
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">delete</button> 
 
+            </div>
+            
         </div>
     </div>
 
 </div>
-
-
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Delete plant</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete {{plant.title}} ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a href="{% url 'planteer:plant_delete_view' plant.id %}" class="btn btn_danger">delete</a>  
+        </div>
+      </div>
+    </div>
+  </div>
 
 {%endblock%} 
